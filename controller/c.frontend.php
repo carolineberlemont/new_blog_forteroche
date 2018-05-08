@@ -4,14 +4,14 @@ require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
 
-function listPosts()
+function lastPost()
 {
     // creation d'un objet
     $postManager = new \Caro\Projet3\Model\PostManager();
     // appel d'une fonction de cet objet
-    $posts = $postManager->getPosts();
+    $lastpost = $postManager->getlastPost();
 
-    require('view/frontend/listPostsView.php');
+    require('view/frontend/sidebar.php');
 }
 
 function post()

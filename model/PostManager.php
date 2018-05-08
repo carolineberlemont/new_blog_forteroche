@@ -6,11 +6,11 @@ require_once("model/Manager.php");
 
 class PostManager extends Manager
 {
-	public function getPosts()
-// fonction qui recupere tous les derniers posts du blog
+	public function getlastPost()
+// fonction qui recupere le dernier post du blog
 	{
 		$db = $this->dbConnect();
-		$req = $db->query('SELECT id, title, content, n°chapitre, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin%ss\') AS post_date_fr FROM posts ORDER BY post_date DESC LIMIT 0, 5');
+		$req = $db->query('SELECT id, title, content, n°chapitre, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin%ss\') AS post_date_fr FROM posts ORDER BY post_date DESC LIMIT 0, 1');
 
 	return $req;
 

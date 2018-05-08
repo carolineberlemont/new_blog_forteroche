@@ -5,9 +5,9 @@ try{
 
 if (isset($_GET['action'])) 
     {
-    if ($_GET['action'] == 'listPosts')    
+    if ($_GET['action'] == 'lastPost')    
         {
-            listPosts();
+            lastPost();
         }
     elseif ($_GET['action'] == 'post') 
         {
