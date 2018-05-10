@@ -17,11 +17,12 @@ class CommentManager extends Manager
 		return $comments;
 	}
 
-	public function postComment($postId, $author, $comment)
+	public function postComment($postId, $author, $content)
+	// poster de nouveaux commentaires
 	{
 		$db = $this->dbConnect();
-		$comments = $db->prepare('INSERT INTO comments(post_id, author, content, comment_date) VALUES(?, ?, ?, NOW())');
-		$affectedLines = $comment->exectue(array($postId, $author, $comment));
+		$new_comments = $db->prepare('INSERT INTO comments(post_id, author, content, comment_date) VALUES(?, ?, ?, NOW())');
+		$affectedLines = $new_comment->exectue(array($postId, $author, $content));
 
 		return $affectedLines;
 	}

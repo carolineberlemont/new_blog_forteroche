@@ -11,8 +11,10 @@ class PostManager extends Manager
 	{
 		$db = $this->dbConnect();
 		$req = $db->query('SELECT id, title, content, n°chapitre, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin%ss\') AS post_date_fr FROM posts ORDER BY post_date DESC LIMIT 0, 1');
-
-	return $req;
+		$req->execute();
+		$lastpost = $req->fetchAll();
+		
+	return $lastpost;
 
 	}
 

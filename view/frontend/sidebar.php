@@ -4,8 +4,9 @@
 
         <div class="col-6 col-md-3 mt-3 sidebar-offcanvas blue rounded" id="sidebar">
           <div class=" widget creme rounded">
-                    <h4 class="font-italic"><?= htmlspecialchars($post['title']) ?>. <em>Chapitre <?= htmlspecialchars($post['n°chapitre']) ?></em></h4>
-                    <p class="mb-3"><?= nl2br(htmlspecialchars($post['content'])) ?></p>
+                    <h4 class="font-italic">Dernier épisode publié</h4>
+                    <h5 class="font-italic"><?= htmlspecialchars($lastpost[0]['title']) ?></br><em>Chapitre <?= htmlspecialchars($lastpost[0]['n°chapitre']) ?></em></h5>
+                    <p class="mb-3"><?= nl2br(htmlspecialchars($lastpost[0]['content'])) ?></p>
                 </div>
 
                 <div class="creme rounded mt-3">
@@ -73,5 +74,5 @@
 
     <?php $sidebar = ob_get_clean(); ?>
 
-    <?php require ('template.php'); ?>
+
 

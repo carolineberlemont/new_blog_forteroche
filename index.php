@@ -1,52 +1,51 @@
 <?php
+
 require('controller/c.frontend.php');
 
-try{
+// chaque action doit appeler une page entiere
 
-if (isset($_GET['action'])) 
+try
     {
-    if ($_GET['action'] == 'lastPost')    
+    if (isset($_GET['action'])) 
         {
-            lastPost();
-        }
-    elseif ($_GET['action'] == 'post') 
-        {
-        if (isset($_GET['id']) && $_GET['id'] > 0) 
+        if ($_GET['action'] == 'addcomment') 
             {
-                post();
-            }
-        else 
-            {
-                throw new Exeption('aucun identifiant de billet envoyé');
-            }
-        }
-
-    elseif ($_GET['action'] == 'addComment') 
-        {
-        if (isset($_GET['id']) && $_GET['id'] > 0) 
-            {
-            if (!empty($_POST['author']) && !empty($_POST['content'])) 
+            if (isset($_GET['id']) && $_GET['id'] > 0) 
                 {
-                    addComment($_GET['id'], $_POST['author'], $_POST['content']);
+                if (!empty($_POST['author']) && !empty($_POST['content'])) 
+                    {
+                        addComment($_GET['id'], $_POST['author'], $_POST['content']);
+                    }
+                else 
+                    {
+                    throw new Exeption('tous les champs ne sont pas remplis !');
+                    }
                 }
-            else 
+             else 
                 {
-                throw new Exeption('tous les champs ne sont pas remplis !');
-                }
-            }
-         else 
+                    // Autre exception
+                    throw new Exception('Aucun identifiant de billet envoyé');
+                } 
+            }    
+        elseif ($_GET['action'] == 'bio')  
             {
-                // Autre exception
-                throw new Exception('Aucun identifiant de billet envoyé');
+                bio();
             }
-            
+        elseif ($_GET['action'] == 'contact')
+            {
+                contact();
+            }
+        elseif ($_GET['action'] == 'mentionslegales')
+            {
+                mentionslegales();
+            }    
+        }      
+    else 
+        {
+            home();
         }
     }
-else 
+catch(Exeption $e) 
     {
-        listPosts();
+        echo 'Erreur : ' . $e->getMessage();
     }
-}
-catch(Exeption $e) {
-    echo 'Erreur : ' . $e->getMessage();
-}
