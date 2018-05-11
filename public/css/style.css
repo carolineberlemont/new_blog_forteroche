@@ -1,27 +1,111 @@
-h1, h3
-{
-    text-align:center;
-}
-h3
-{
-    background-color:black;
-    color:white;
-    font-size:0.9em;
-    margin-bottom:0px;
-}
-.news p
-{
-    background-color:#CCCCCC;
-    margin-top:0px;
-}
-.news
-{
-    width:70%;
-    margin:auto;
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+  }
+
+body {
+  padding-top: 70px;
+  background-color: #0b2027
 }
 
-a
-{
-    text-decoration: none;
-    color: blue;
+footer {
+  
+
+}
+div {
+  padding: 15px;
+}
+
+a {
+  color: black;
+}
+
+h3 {
+  text-align: center;
+}
+
+.footer {
+   text-align: center;
+}
+
+.jumbotron {
+  text-align: center;
+  background-color: #f6f1d1;
+}
+
+.resum {
+  background-color: #f6f1d1;
+  text-align: center ;
+  }
+
+.creme {
+  background-color: #f6f1d1;
+}
+
+.blue {
+  background-color: #56b2bf; 
+}
+.navbar.toggler.icon {
+  color: black;
+}
+
+
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -100%; /* 12 columns */
+  }
+
+  .row-offcanvas-right.active
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -100%; /* 12 columns */
+  }
+
+  .row-offcanvas-left.active
+  .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
 }

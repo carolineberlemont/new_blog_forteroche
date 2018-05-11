@@ -1,4 +1,4 @@
-<?php $title = 'Billet simple pour l\'Alaska'; ?>
+<?php $title = 'Mentions légales'; ?>
 
 <?php ob_start(); ?>
 
@@ -15,25 +15,25 @@
                 <h5>Une histoire de Géantes et d'Ecologie</h5>
           </div>
 
-          <div class="mentioneslegales rounded">
-            <h3 class="title p-3 border-bottom">L'HISTOIRE</h3>                           
-                    <p>C'est le dernier printemps, le dernier printemps où elles remonteraient le Pacifique Est. 
-                    </br>
-                    </br>
-                    La migration des baleines grises du Pacifique était typique : au début de l’hiver, poussées par le déclin des jours, elles se déplacaient vers le sud pour se reproduire dans les lagunes chaudes du Mexique. Dès février, elles entamaient une incroyable migration vers le nord pour se nourrir le long de la côte de l’Alaska et dans la mer de Beaufort.    
-                    </br>
-                    </br>
-                    Mais cette longue route était chaque année plus délicate à parcourir. Les eaux étaient plus chaudes, plus longtemps et les occasions de percuter un ONNI <em>objet naviguant non identifié</em>, chaque année plus nombreuses.
-                    </br>
-                    </br>
-                    Au fil des ans, la colonie s était réduite. Auparavant plus de 60, les géantes des mers n'étaient plus qu'une vingtaine à s\'engager dans les courants marins. Les jeunes de l'année eux-même, étaient venus au monde plus fragiles que leurs ainés.
-                    </br>
-                    </br>
-                    Que devra inventer Mox, la femelle dominante pour protéger sa horde et donner une chance à Ulia, sa dernière née, de conduire à son tour la colonie vers les eaux glacées de l'Alaska ?
-                    </p>
-
-                    <p>
-                    <em><strong>Découvrez l'incroyable aventure de Mox et Ulia, à travers les eaux glacées de l'Alaska</strong></em></p>
+          <div class="mentioneslegales creme rounded">
+            <h3 class="title p-3 border-bottom">Mentions légales</h3>                           
+                Les mentions légales d’un site internet professionnel
+                Les informations à faire apparaître dans les mentions légales dépendent de la nature du site. Les mentions sont différentes suivant que votre site internet est un site professionnel ou un site personnel. Commençons par le premier cas : les mentions légales pour un site professionnel.
+                </br>
+                Si vous éditez un site professionnel, deux cas de figure doivent être distingués suivant le statut juridique de votre entreprise :
+                </br>
+                Vous êtes une personne physique : un auto-entrepreneur, une entreprise individuelle, une EIRL…
+                Vous êtes une société : SAS, SARL, SA, EURL, etc.
+                Si vous êtes une personne physique, vous devez afficher les mentions suivantes :
+                </br>
+                Nom et prénoms
+                Adresse email
+                Téléphone
+                Adresse postale de votre domicile
+                Coordonnés de l’hébergeur de votre site web (nom, dénomination ou raison sociale, adresse, téléphone).
+                Si vous êtes une personne morale, les mentions légales doivent faire apparaître les informations qui suivent :
+                </br>
+                Dénomination ou raison sociale blablabla</p>
           </div><!--/mentionslegales rounded-->
         </div><!--/col-12 col-md-9-->
 

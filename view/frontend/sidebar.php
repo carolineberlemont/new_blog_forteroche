@@ -1,11 +1,12 @@
-<?php $title = 'Billet simple pour l\'Alaska'; ?>
 
 <?php ob_start(); ?>
 
         <div class="col-6 col-md-3 mt-3 sidebar-offcanvas blue rounded" id="sidebar">
           <div class=" widget creme rounded">
-                    <h4 class="font-italic">Dernier épisode publié</h4>
-                    <h5 class="font-italic"><?= htmlspecialchars($lastpost[0]['title']) ?></br><em>Chapitre <?= htmlspecialchars($lastpost[0]['n°chapitre']) ?></em></h5>
+                    <h5>Dernier épisode publié</h5>
+                    <hr size=4 width=70% align=center >
+                    <h6><?= htmlspecialchars($lastpost[0]['title']) ?>.</br>
+                    <em>Chap. <?= htmlspecialchars($lastpost[0]['chapitre_title']) ?></em></h6>
                     <p class="mb-3"><?= nl2br(htmlspecialchars($lastpost[0]['content'])) ?></p>
                 </div>
 
@@ -15,16 +16,16 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Chap1.  Dans les eaux chaudes du Mexique</a>
                                 <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#">Episode1</a>
-                                  <a class="dropdown-item" href="#">Episode2</a>
-                                  <a class="dropdown-item" href="#">Episode3</a>
+                                  <a class="dropdown-item" href="?action=post&id=1">Episode1</a>
+                                  <a class="dropdown-item" href="?action=post&id=2">Episode2</a>
+                                  <a class="dropdown-item" href="?action=post&id=3">Episode3</a>
                                 </div>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Chap2.  Telle une course de fond</a>
                                 <div class="dropdown-menu">
-                                  <a class="dropdown-item" href="#">Episode1</a>
+                                  <a class="dropdown-item" href="?action=post&id=4">Episode1</a>
                                   <a class="dropdown-item disabled" href="#">Episode2</a>
                                   <a class="dropdown-item disabled" href="#">Episode3</a>
                                 </div>

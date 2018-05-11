@@ -8,23 +8,15 @@ try
     {
     if (isset($_GET['action'])) 
         {
-        if ($_GET['action'] == 'addcomment') 
+        if ($_GET['action'] == 'post') 
             {
             if (isset($_GET['id']) && $_GET['id'] > 0) 
-                {
-                if (!empty($_POST['author']) && !empty($_POST['content'])) 
-                    {
-                        addComment($_GET['id'], $_POST['author'], $_POST['content']);
-                    }
-                else 
-                    {
-                    throw new Exeption('tous les champs ne sont pas remplis !');
-                    }
+                {                    
+                post();
                 }
-             else 
+            else 
                 {
-                    // Autre exception
-                    throw new Exception('Aucun identifiant de billet envoyé');
+                throw new Exception('Aucun identifiant de billet envoyé');
                 } 
             }    
         elseif ($_GET['action'] == 'bio')  

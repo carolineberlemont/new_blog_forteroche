@@ -15,32 +15,26 @@ function home()
     require('view/frontend/home.php');
 }
 
-function addcomment()
+function post()
 {
     $postManager = new \Caro\Projet3\Model\PostManager();
     $commentManager = new \Caro\Projet3\Model\CommentManager();
 
-    $post = getPost($_GET['id']);
-    $comment = getComments($_GET['id']);
-    $affectedLines = $commentManager->postComment($postId, $author, $content);
-        if ($affectedLines === false) 
-            {
-                throw new Exception('Impossible d\'ajouter le commentaire !');
-            }
-        else 
-            {
-                header('Location: index.php?action=post&id=' . $postId);
-            }
-     // récupérer le dernier post pour la sidebar    
-    $lastpost = $postManager->getlastPost();
+    $post = $postManager->getPost($_GET['id']); //appel d'un post selon son id
+    $comments = $commentManager->getComments($_GET['id']); // appel des commentaires liés au post
 
-    require('view/frontend/sidebar.php');
-    require('view/frontend/postView.php');
+    $lastpost = $postManager->getlastPost(); //appel le dernier post posté pour la side bar
+
+     require('view/frontend/sidebar.php');
+     require('view/frontend/postView.php');
+   
 }
+
 
 function bio()
 {
     $postManager = new \Caro\Projet3\Model\PostManager();
+
     $lastpost = $postManager->getlastPost();
 
     require('view/frontend/sidebar.php');
@@ -50,6 +44,7 @@ function bio()
 function contact()
 {
     $postManager = new \Caro\Projet3\Model\PostManager();
+
     $lastpost = $postManager->getlastPost();
 
     require('view/frontend/sidebar.php');

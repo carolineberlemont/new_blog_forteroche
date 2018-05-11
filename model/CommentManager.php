@@ -10,9 +10,8 @@ class CommentManager extends Manager
 	// recupère les commentaires associés à un id de post
 	{
 		    $db = $this->dbConnect();
-		    $comments = $db->prepare('SELECT id, author, content, post_id, reporting, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
-		   	$comments->execute(array($postId));
-		   
+		    $comments = $db->prepare('SELECT comments.id, authors.pseudo_author, comments.content, comments.post_id, comments.reporting, DATE_FORMAT(comments.comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments INNER JOIN authors ON comments.author = authors.id_author WHERE post_id = ? ORDER BY comment_date DESC');
+		   	$comments->execute(array($postId));		   
 
 		return $comments;
 	}

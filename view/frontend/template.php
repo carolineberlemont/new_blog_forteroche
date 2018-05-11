@@ -11,7 +11,7 @@
     <link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="public/css/offcanvas.css" rel="stylesheet">
+    <link href="public/css/style.css" rel="stylesheet">
   </head>
     
         
@@ -22,18 +22,15 @@
         <span class="navbar-toggler-icon"></span>
         </button>
 
-                    <a class="navbar-brand" href="/home.php">Billet simple pour l'Alaska</a>
+                    <a class="navbar-brand" href="index.php">Billet simple pour l'Alaska</a>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/postView.php">Les épisodes <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="?action=bio">A propos de l'auteur</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/bio.php">A propos de l'auteur</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact.php">Contact</a>
+                    <a class="nav-link" href="?action=contact">Contact</a>
                 </li>
             </ul>
         </div>
@@ -51,7 +48,7 @@
     </div>
 
     <div class="footer container creme rounded">
-        <p>Design for Jean Forteroche by CaroBer @ 2018 Tous droits réservés.<br><a class="mentions légales" href="#/mentionslegales.php">Mentions légales</a></p> 
+        <p>Design pour Jean Forteroche par CaroBer @ 2018 Tous droits réservés.<br><a class="mentions légales" href="?action=mentionslegales"><em>Mentions légales</em></a></p> 
     </div><!--/.footer-->
    
 

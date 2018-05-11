@@ -1,4 +1,4 @@
-<?php $title = 'Billet simple pour l\'Alaska'; ?>
+<?php $title = 'Contactez-moi'; ?>
 
 <?php ob_start(); ?>
 
@@ -15,32 +15,32 @@
                 <h5>Une histoire de Géantes et d'Ecologie</h5>
           </div>
 
-<div class="contact rounded">
-    <h3 class="title p-3 border-bottom">L'HISTOIRE</h3>                           
-    <div class="form-contact"       
+            <div class="contact rounded creme">
+                <h3 class="title p-3 border-bottom">Ecrivez-moi</h3>                           
+                <div class="form-contact"       
 
-        <form action="/action_page.php">
+                    <form action="/action_page.php">
 
-            <div class="form-group pt-2">
-                <label id="Nom">Votre Nom</label>
-                <input type="text" class="form-control creme" id="Nom" placeholder="Jean Forteroche">
-            </div>
+                        <div class="form-group pt-2">
+                            <label id="Nom">Votre Nom</label>
+                            <input type="text" class="form-control creme" id="Nom" placeholder="Jean Forteroche">
+                        </div>
 
-            <div class="form-group">
-                <label id="email">Email:</label>
-                <input type="email" class="form-control creme" id="email" placeholder="jeanforteroche@blabla.com">
-            </div>
+                        <div class="form-group">
+                            <label id="email">Votre Email:</label>
+                            <input type="email" class="form-control creme" id="email" placeholder="jeanforteroche@blabla.com">
+                        </div>
 
-            <div class="form-group">
-                <label id="message">Votre message:</label>
-                <textarea type="text" class="form-control creme" rows="3" placeholder="Ecrivez-moi ici, je vous répondrai au plus vite. Merci et à bientôt"></textarea>
-            </div>
-            <br>
-            <br>
-            <button type="submit" class="btn creme">Submit</button>
-        </form>
-    </div>
-</div><!--/contact rounded-->
+                        <div class="form-group">
+                            <label id="message">Votre message:</label>
+                            <textarea type="text" class="form-control creme" rows="3" placeholder="Ecrivez-moi ici, je vous répondrai au plus vite. Merci et à bientôt"></textarea>
+                        </div>
+                        <br>
+                        <br>
+                        <button type="submit" class="btn blue">Envoyer</button>
+                    </form>
+                </div>
+            </div><!--/contact rounded-->
         </div><!--/col-12 col-md-9-->
 
 
