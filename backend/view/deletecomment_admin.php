@@ -10,14 +10,11 @@
 
             <div class="m-3 p-3 blog-post creme border rounded">
                 <h5><em>publié le <?= $post['post_date_fr'] ?></em></h5>
-                <textarea>
                 <h3 class="title p-3 border-bottom">
                 <?= htmlspecialchars($post['title']) ?>.</h3>
                 </br>
                 <hr size=4 width=70% align=center >
-                <p><?= nl2br(htmlspecialchars($post['content'])) ?></p>                
-                </textarea>
-                <input type="submit" value="Enregistrer" class="blue" />
+                <p><?= nl2br(htmlspecialchars($post['content'])) ?></p>               
             </div><!-- m-3 p-3 -->            
         
         <!-- espace de commentaires -->
@@ -32,9 +29,8 @@
                     ?>
                         <p><strong>Par <?= htmlspecialchars($comment['pseudo_author']) ?></strong> 
                         publié le <?= $comment['comment_date_fr'] ?>
-                            <form action="index_admin.php?action=deletecomment()" method="post">
-                            <input type="submit" value="Supprimer" class="blue" /></p>     
-                            </form>
+                        
+                        <input type="submit" value="Supprimer" class="blue" /></p>          
                         <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
                     <?php
                     } 

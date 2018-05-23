@@ -5,9 +5,8 @@
 
           <div class="jumbotron">
           	<h1>BILLET SIMPLE POUR L'ALASKA</h1>
-            <h2>Jean FORTEROCHE</h2>
-            	</br>
-                <h5>Depuis cette interface d'administration, vous pourrez ajouter, modifier ou supprimer un épisode de votre livre. </br> </br>Vous pourrez egalement modérer les commentaires de vos lecteurs</h5>
+               	</br>
+                <h5>Jean, depuis cette interface d'administration, vous pouvez ajouter, modifier ou supprimer un épisode de votre livre. </br> Vous pouvez également modérer les commentaires de vos lecteurs</br> Travaillez bien !</h5>
           </div>
 
           <div class="form_admin creme rounded">

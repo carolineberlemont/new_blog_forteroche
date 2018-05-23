@@ -10,7 +10,7 @@
     <link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="public/css/style.css" rel="stylesheet">
+    <link href="public/css/style_admin.css" rel="stylesheet">
     </head>
     
         
@@ -23,7 +23,6 @@
 
                     <a class="navbar-brand" href="index.php">Billet simple pour l'Alaska</a>
                     								<!-- ajouter le bon lien -->
-
     </nav>  
 
     <div class="container">
@@ -43,7 +42,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="http://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="public/js/offcanvas.js"></script>
- </body>
+   </body>
 
 </html>

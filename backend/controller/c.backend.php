@@ -28,21 +28,46 @@ function post_admin()
     require('view/post_admin.php');
 }
 
-function addpost()
+function newpost_admin()
 {
     $postManager = new \Caro\Projet3\Backend\Model\PostManager();
 
-    $addpost = $postManager->addPost(); 
+    require('view/newpost_admin.php');
+}
+
+function addpost_admin($title, $content)
+{
+    $postManager = new \Caro\Projet3\Backend\Model\PostManager();
+
+    $affectedLines = $postManager->addPost($title, $content); 
 
     require('view/addpost_admin.php');
-
 }
 
-function mentionslegales()
+function modifiedpost_admin($title, $content)
 {
-    $postManager = new \Caro\Projet3\Backend\Model\PostManager();
+    $postMananger = new \Caro\Projet3\Backend\Model\PostManager();
+    $commentManager = new \Caro\Projet3\Backend\Model\CommentManager();
 
-    require('view/mentionslegales.php');
+    $modifiedLines = $postManager->modifiedLines($title, $content);
+    $post = $postManager->getPost($_GET['id']);
+    $comments = $commentManager->getComments($_GET['id']); 
+
+    require('view/modifiedpost_admin.html');
 }
+
+function deletecomment_admin()
+{
+    $postMananger = new \Caro\Projet3\Backend\Model\PostManager();
+    $commentManager = new \Caro\Projet3\Backend\Model\CommentManager();
+
+    $modifiedLines = $postManager->modifiedLines($title, $content);
+    $post = $postManager->getPost($_GET['id']);
+    $comments = $commentManager->getComments($_GET['id']); 
+
+    require('view/modifiedpost_admin.html');
+}
+
+
 
 

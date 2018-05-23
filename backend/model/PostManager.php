@@ -9,7 +9,7 @@ class PostManager extends Manager
 	public function getPosts()
 		{
 			$db = $this->dbConnect();
-			$req = $db->query('SELECT posts.id, posts.title, posts.content, chapitres.chapitre_title, DATE_FORMAT(posts.post_date, \'%d/%m/%Y à %Hh%imin\') AS post_date_fr FROM chapitres INNER JOIN posts ON id_chapitre = posts.Nchapitre ORDER BY post_date DESC');
+			$req = $db->query('SELECT id, title, content, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin\') AS post_date_fr FROM posts ORDER BY post_date DESC');
 
 			return $req;
 		}
@@ -19,7 +19,7 @@ class PostManager extends Manager
 // recupère un post précis en fonction de son id
 		{
 			$db = $this->dbConnect();
-			$req = $db->prepare('SELECT posts.id, posts.title, posts.content, chapitres.chapitre_title, DATE_FORMAT(posts.post_date, \'%d/%m/%Y\') AS post_date_fr FROM chapitres INNER JOIN posts ON id_chapitre = posts.Nchapitre WHERE id = ?');
+			$req = $db->prepare('SELECT id, title, content, DATE_FORMAT(post_date, \'%d/%m/%Y\') AS post_date_fr FROM posts  WHERE id = ?');
 			$req->execute(array($postId));
 			$post = $req->fetch();
 
@@ -27,12 +27,22 @@ class PostManager extends Manager
 
 		}
 
-	public function addPost()
+	public function addPost($title, $content)
 		{
 			$db = $this->dbConnect();
-			$req = $db->exec('INSERT INTO post (id, title, content, DATE_FORMAT(post_date, \'%d/%m/%Y\')) VALUES ()');
+			$addpost = $db->prepare('INSERT INTO posts(title, content, post_date) VALUES(?, ?, NOW())');
+			$affectedLines = $addpost->execute(array($title, $content));
 
-		return $addpost;		
+		return $affectedLines;		
+		}
+
+	public function modifiedPost($postId, $title, $content)
+		{
+			$db = $this->dbConnect();
+			$modifiedpost = $db->prepare('UPDATE posts(post_id, title, content, post_date) VALUES(?, ?, ?, Now())');
+			$modifiedLines = $modifiedpost->execute($title, $content);
+
+		return $modifiedLines;
 		}
 
 }
