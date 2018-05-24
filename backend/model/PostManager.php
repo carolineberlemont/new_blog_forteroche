@@ -38,9 +38,10 @@ class PostManager extends Manager
 
 	public function modifiedPost($postId, $title, $content)
 		{
+		
 			$db = $this->dbConnect();
-			$modifiedpost = $db->prepare('UPDATE posts(post_id, title, content, post_date) VALUES(?, ?, ?, Now())');
-			$modifiedLines = $modifiedpost->execute($title, $content);
+			$modifiedpost = $db->prepare('UPDATE posts(id, title, content, post_date) VALUES(?, ?, ?, NOW())');
+			$modifiedLines = $modifiedpost->execute(array(4, $title, $content));
 
 		return $modifiedLines;
 		}

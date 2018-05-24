@@ -1,4 +1,4 @@
-<?php $title = 'Billet simple pour l\'Alaska'; ?>
+<?php $title = 'Épisodes'; ?>
 
 <?php ob_start(); ?>
 

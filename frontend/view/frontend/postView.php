@@ -36,8 +36,12 @@
                     {
                     ?>
                         <p><strong>Par <?= htmlspecialchars($comment['pseudo_author']) ?></strong> 
-                        publié le <?= $comment['comment_date_fr'] ?>          
-                        <input type="submit" value="Signaler" class="blue" /></p>
+                        publié le <?= $comment['comment_date_fr'] ?> 
+
+                    <form action="index.php?action=reportcomment()" method="get">         
+                    <input type="submit" value="Signaler" class="blue" /></p>
+                    </form>
+                    
                         <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
                     <?php
                     } 

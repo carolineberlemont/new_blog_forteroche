@@ -22,8 +22,16 @@ try
                     }
                 elseif ($_GET['action'] == 'modified_post')
                     {
-                        modifiedpost_admin();
+                        if (!empty($_POST['id']) && !empty($_POST['title']) && !empty($_POST['content']))             		
+                            {       	                 
+                        		modifiedpost_admin($_POST['id'], $_POST['title'], $_POST['content']);
+                        	}
+                        
                     }
+                elseif ($_GET['action'] == 'deletecomment')
+                    {
+                        deletecomment_admin();
+                    }    
                 elseif ($_GET['action'] == 'newpost') 
                     {
                         newpost_admin();
@@ -32,17 +40,14 @@ try
                     {
                         if (!empty($_POST['title']) && !empty($_POST['content']))
                             {
-                                addpost_admin($_POST['title'], $_POST['content']);
+                                addpost_admin($_POST['title'], $_POST['content']);                           
                             }
-                        else
+                        else 
                             {
-                                echo 'Erreur : vous n\'avez pas remplis tous les champs';
+                                echo 'tous les champs ne sont pas remplis';
                             }
-                    }
-                elseif ($_GET['action'] == 'deletecomment')
-                    {
-                        deletecomment_admin();
-                    }
+                                            
+                    }           
             }
         else
             {

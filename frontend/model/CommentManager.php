@@ -26,4 +26,16 @@ class CommentManager extends Manager
 		return $affectedLines;
 	}
 
+	public function reportComment($commentId)
+	//pour signaler un commentaire, récupère un commentaire précis
+	{
+		$db = $this->dbConnect
+		$req = $db->prepare('SELECT comments.id, authors.pseudo_author, comments.content, comments.post_id, comments.reporting, DATE_FORMAT(comments.comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments INNER JOIN authors ON comments.author = authors.id_author WHERE id = ?');
+		$req->execute(array($commentId));
+		$reportcomment = $req->fetch();
+
+		return $post;
+
+	}
+
 }

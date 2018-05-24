@@ -1,4 +1,4 @@
-<?php $title = 'Billet simple pour l\'Alaska'; ?>
+<?php $title = 'Ajout d\'un épisode' ?>
 
 <?php ob_start(); ?>
 
@@ -11,10 +11,9 @@
             <div class="m-3 p-3 blog-post creme border rounded">
                 <!--  -->
 
-                <form action="index_admin.php?action=addpost()" method="post">
-
+                <form action="index_admin.php?action=addpost" method="post">
                     <div>
-                        <h5>Ajoutez ici le titre de l'épisode sur le modèle "1. Titre de l'épisode."</h5>
+                        <h5>Ajoutez ici le titre de l'épisode</h5>
                         <textarea  id="title" name="title" ></textarea>
                     </div>
 
@@ -24,7 +23,6 @@
                     </div>
 
                     <input type="submit" value="Enregistrer" />
-
                 </form>
 
 
