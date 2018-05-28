@@ -40,11 +40,21 @@ class PostManager extends Manager
 		{
 		
 			$db = $this->dbConnect();
-			$modifiedpost = $db->prepare('UPDATE posts(id, title, content, post_date) VALUES(?, ?, ?, NOW())');
-			$modifiedLines = $modifiedpost->execute(array(4, $title, $content));
+			
+			$modifiedpost = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :id');
+			$modifiedLines = $modifiedpost->execute(array('id' => $postId, 'title' => $title,'content' => $content));
 
 		return $modifiedLines;
 		}
+
+	public function deletedPost($id)
+	{
+		$db = $this->dbConnect();
+		$no_comment = $db->prepare('DELETE FROM posts WHERE id = ?');
+		$deletedLines = $no_comment->execute(array($id));
+
+		return $deletedLines;
+	}	
 
 }
 

@@ -26,11 +26,13 @@ class CommentManager extends Manager
 		return $affectedLines;
 	}
 
-	public function deleteComment()
+	public function deleteComment($id)
 	{
 		$db = $this->dbConnect();
-		$no_comment = $db->prepare('DELETE FROM comments WHERE id = ');
-		$modifiedLines = $no_comment->execute();
+		$no_comment = $db->prepare('DELETE FROM comments WHERE id = ?');
+		$deletedLines = $no_comment->execute(array($id));
+
+		return $deletedLines;
 	}
 
 }

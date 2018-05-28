@@ -17,11 +17,11 @@
         <div class="blog-main blue rounded">
                 <div class="m-3 p-3 blog-post creme border rounded">
                     <h3 class="title p-3 border-bottom">
-                    <?= htmlspecialchars($post['title']) ?>.</h3>
+                    <?= $post['title'] ?>.</h3>
                     </br>
                     <h5><em>publié le <?= $post['post_date_fr'] ?> par Jean FORTEROCHE</em></h5>
                     <hr size=4 width=70% align=center >
-                    <p><?= nl2br(htmlspecialchars($post['content'])) ?></p>
+                    <p><?= $post['content'] ?></p>
                 </div><!-- m-3 p-3 -->
                 
         
@@ -35,14 +35,14 @@
                     while ($comment = $comments->fetch())
                     {
                     ?>
-                        <p><strong>Par <?= htmlspecialchars($comment['pseudo_author']) ?></strong> 
+                        <p><strong>Par <?=$comment['pseudo_author'] ?></strong> 
                         publié le <?= $comment['comment_date_fr'] ?> 
 
                     <form action="index.php?action=reportcomment()" method="get">         
                     <input type="submit" value="Signaler" class="blue" /></p>
                     </form>
                     
-                        <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
+                        <p><?= $comment['content'] ?></p>
                     <?php
                     } 
                     ?>                   

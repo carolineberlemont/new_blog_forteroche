@@ -10,21 +10,20 @@
 
             <div class="posts blue rounded">
                 <button class= "creme rounded"><a href="index_admin.php?action=newpost">Ajouter un épisode</a></button>
-                <!-- evidemment le lien ne fonctionne pas -->
-                  
+                                  
                     <?php
                     while ($post = $posts->fetch())
                     {
                     ?>
                         <div class= "post m-2 creme border rounded">
                         <h3 class="title border-bottom">
-                        <?= htmlspecialchars($post['title']) ?>.</h3>
+                        <?= $post['title'] ?>.</h3>
                         </br>
                         <h5><em>publié le <?= $post['post_date_fr'] ?></em></h5>
                         <hr size=4 width=70% align=center >
-                        <p><?= htmlspecialchars($post['content']) ?>...</p>
+                        <p><?= $post['content'] ?>...</p>
 
-                        <button class= "blue"><a href="index_admin.php?action=post&amp;id=<?= $post['id'] ?>">Modifier le billet et modérer les commentaires</a></button>
+                        <button class= "blue"><a href="index_admin.php?action=post&amp;id=<?= $post['id'] ?>">Modifier/supprimer le billet et modérer les commentaires</a></button>
                         </div>
                         <?php
                     }

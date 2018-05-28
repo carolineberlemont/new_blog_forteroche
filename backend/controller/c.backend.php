@@ -48,7 +48,7 @@ function modifiedpost_admin($postID, $title, $content)
 {
     $postManager = new \Caro\Projet3\Backend\Model\PostManager();
     $commentManager = new \Caro\Projet3\Backend\Model\CommentManager();
-var_dump($postID);
+
     $modifiedLines = $postManager->modifiedPost($postID, $title, $content);
     $post = $postManager->getPost($_POST['id']);
     $comments = $commentManager->getComments($_POST['id']); 
@@ -56,16 +56,25 @@ var_dump($postID);
     require('view/modifiedpost_admin.php');
 }
 
-function deletecomment_admin()
+function deletedpost_admin($id)
 {
-    $postMananger = new \Caro\Projet3\Backend\Model\PostManager();
+    $postManager = new \Caro\Projet3\Backend\Model\PostManager();
+
+    $deletedLines = $postManager->deletedPost($id);
+
+    require('view/deletedpost_admin.php');
+}
+
+function deletecomment_admin($id, $postid)
+{
+    $postManager = new \Caro\Projet3\Backend\Model\PostManager();
     $commentManager = new \Caro\Projet3\Backend\Model\CommentManager();
 
-    $modifiedLines = $postManager->modifiedLines($title, $content);
-    $post = $postManager->getPost($_POST['id']);
-    $comments = $commentManager->getComments($_POST['id']); 
+    $deletedLines = $commentManager->deleteComment($id);
+    $post = $postManager->getPost($postid);
+    $comments = $commentManager->getComments($postid); 
 
-    require('view/modifiedpost_admin.php');
+    require('view/deletecomment_admin.php');
 }
 
 

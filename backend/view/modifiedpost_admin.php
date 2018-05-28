@@ -5,17 +5,17 @@
             <div class="jumbotron">
                 <h1>BILLET SIMPLE POUR L'ALASKA</h1>
                 <h2>Jean FORTEROCHE</h2>
-                <h5>Ici, vous pouvez modifier le contenu d'un billet et modérer les commentaires</h5>              
+                <h5>Votre épisode a été modifié</h5>
+                <button class= "blue rounded"><a href="index_admin.php?action=listposts">Retour à la liste des épisodes</a></button>   
+
             </div>
 
-            <div class="m-3 p-3 blog-post creme border rounded">
-                <h5><em>Votre épisode a été modifié</em></h5>
-                <h5><em>modifié le <?= $post['post_date_fr'] ?></em></h5>
-                <h3 class="title p-3 border-bottom">
-                <?= htmlspecialchars($post['title']) ?>.</h3>
-                </br>
-                <hr size=4 width=70% align=center >
-                <p><?= nl2br(htmlspecialchars($post['content'])) ?></p>                
+            <div class="m-3 p-3 blog-post blue border rounded">
+                
+                    <div class= "post m-2 creme border rounded">
+                        <h3 class="title"><?= $post['title'] ?>.</h3>
+                        <p><?= $post['content'] ?></p>    
+                    </div>            
             </div><!-- m-3 p-3 -->            
         
         <!-- espace de commentaires -->
@@ -28,10 +28,10 @@
                     while ($comment = $comments->fetch())
                     {
                     ?>
-                        <p><strong>Par <?= htmlspecialchars($comment['pseudo_author']) ?></strong> 
+                        <p><strong>Par <?= $comment['pseudo_author'] ?></strong> 
                         publié le <?= $comment['comment_date_fr'] ?>
                         <input type="submit" value="Supprimer" class="blue" /></p>          
-                        <p><?= nl2br(htmlspecialchars($comment['content'])) ?></p>
+                        <p><?= $comment['content'] ?></p>
                     <?php
                     } 
                     ?>                   

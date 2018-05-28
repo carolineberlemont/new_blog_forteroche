@@ -12,11 +12,11 @@ try
             {
             if (isset($_GET['id']) && $_GET['id'] > 0) 
                 {                    
-                post();
+                    post();
                 }
             else 
                 {
-                throw new Exception('Aucun identifiant de billet envoyé');
+                    throw new Exception('Aucun identifiant de billet envoyé');
                 } 
             }    
         elseif ($_GET['action'] == 'bio')  

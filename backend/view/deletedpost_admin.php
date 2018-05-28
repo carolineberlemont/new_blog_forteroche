@@ -5,7 +5,7 @@
             <div class="jumbotron">
                 <h1>BILLET SIMPLE POUR L'ALASKA</h1>
                 <h2>Jean FORTEROCHE</h2>
-                <h5>Bravo, votre épisode a bien été ajouté</h5>  
+                <h5>Bravo, votre épisode a bien été supprimé</h5>  
 
                 <button class= "blue rounded"><a href="index_admin.php?action=listposts">Retour à la liste des épisodes</a></button>            
             </div>

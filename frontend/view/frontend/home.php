@@ -1,8 +1,6 @@
 <?php $title = 'Billet simple pour l\'Alaska'; ?>
 
 <?php ob_start(); ?>
-
-
         <div class="col-12 col-md-9">
           <p class="float-right hidden-md-up">
             <button type="button" class="btn btn-blue btn-sm blue p-1 m-1" data-toggle="offcanvas">Autres épisodes</button>
@@ -33,7 +31,7 @@
                     </p>
 
                     <p>
-                    <em><strong>Découvrez l'incroyable aventure de Mox et Ulia, à travers les eaux glacées de l'Alaska</strong></em></p>
+                    <em><strong>Découvrez l'incroyable aventure de Mox et Ulia, à travers les eaux glacées de a</strong></em></p>
           </div><!--/resum rounded-->
         </div><!--/col-12 col-md-9-->
 
@@ -41,4 +39,3 @@
     <?php $content = ob_get_clean(); ?>
 
     <?php require ("template.php"); ?>
-
