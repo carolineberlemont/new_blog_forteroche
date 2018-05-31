@@ -5,8 +5,8 @@
 
                 <div class=" widget creme rounded" >
                     <h5><a href="?action=post&id=<?= $lastpost[0]['id'] ?>">Dernier épisode publié</a></h5>
-                    <hr size=4 width=70% align=center >
-                    <h6><?= $lastpost[0]['title'] ?>.</br></h6>
+                </br>
+                    <h6><a href="action=post$id=<?= $lastpost[0]['id'] ?>"><?= $lastpost[0]['title'] ?></a></h6>              
                     <p class="mb-3"><?= substr($lastpost[0]['content'], 0, strpos($lastpost[0]['content']," ",90)) ?>...</p>
                 </div>
 
@@ -32,4 +32,3 @@
 
 <?php $sidebar = ob_get_clean(); ?>
 
-<?php require("template.php"); ?>

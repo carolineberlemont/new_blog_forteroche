@@ -33,7 +33,6 @@
           </div><!--/bio rounded-->
         </div><!--/col-12 col-md-9-->
 
-
     <?php $content = ob_get_clean(); ?>
 
     <?php require ("template.php"); ?>

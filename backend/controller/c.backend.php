@@ -3,6 +3,46 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
+function login_admin()
+{
+    $login = isset ($_POST['login']) ? $_POST ['login'] : '' ;
+    $password = isset ($_POST['password']) ? $_POST ['password'] : '' ;
+
+        if ($login == '') {
+            header('Location: home_admin.php?error=1');
+        }
+        elseif ($password != "kangourou") {
+            header('Location : home_admin.php?error=2');
+        }
+        else{
+            session_start();
+            $_SESSION['login'] = $login;
+            $_SESSION['password'] = $password;
+            $_SESSION['logged'] = true;
+
+        header('Location : listposts.php');
+}
+
+function isLogged()
+    {
+        return $_SESSION['connected'] ? false;
+    }
+    if (isLogged()) {
+        if ($action === 'listposts') 
+        {
+            listPosts();
+            exit();
+        }
+     
+        if ($action === 'newpost') 
+        {
+            newPost();
+            exit();
+        }
+    }
+ 
+header('Location: /index.php?action=home');
+
 
 function home_admin()
 {

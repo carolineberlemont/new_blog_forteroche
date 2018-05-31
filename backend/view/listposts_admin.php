@@ -4,7 +4,7 @@
 
             <div class="jumbotron">
                 <h1>BILLET SIMPLE POUR L'ALASKA</h1>
-                <h2>Jean FORTEROCHE</h2>
+                <h2>Bonjour Jean FORTEROCHE</h2>
                 <h5>Ici, vous pouvez ajouter, modifier, supprimer les épisodes de votre nouvel ouvrage</h5>              
             </div>
 

@@ -12,8 +12,8 @@ function home()
     $lastpost = $postManager->getlastPost();
     $posts = $postManager->getPosts();
 
-    require('view/frontend/sidebar.php');
-    require('view/frontend/home.php');
+    require('view/sidebar.php');
+    require('view/home.php');
 }
 
 function post()
@@ -21,17 +21,36 @@ function post()
     $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
     $commentManager = new \Caro\Projet3\Frontend\Model\CommentManager();
 
-    $post = $postManager->getPost($_GET['id']); //appel d'un post selon son id
+    $poster = $postManager->getPost($_GET['id']); //appel d'un post selon son id
     $comments = $commentManager->getComments($_GET['id']); // appel des commentaires liés au post
 
     $lastpost = $postManager->getlastPost();
     $posts = $postManager->getPosts();
 
-     require('view/frontend/sidebar.php');
-     require('view/frontend/postView.php');
-   
+     require('view/sidebar.php');
+     require('view/postView.php');   
 }
 
+function addComment($postId, $author, $content)
+{
+    $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
+    $commentManager = new \Caro\Projet3\Frontend\Model\CommentManager();
+
+    $affectedLines = $commentManager->postComment($postId, $author, $content);
+        if ($affectedLines === false) {
+            die('Impossible d\'ajouter le commentaire !');
+        }
+        else {
+            header('Location: index.php?action=post&id=' . $postId);
+        }
+
+    $lastpost = $postManager->getlastPost();
+    $posts = $postManager->getPosts();
+
+    require('view/sidebar.php');
+    require('view/postView.php');
+
+}
 
 function bio()
 {
@@ -40,8 +59,8 @@ function bio()
     $lastpost = $postManager->getlastPost();
     $posts = $postManager->getPosts();
 
-    require('view/frontend/sidebar.php');
-    require('view/frontend/bio.php');
+    require('view/sidebar.php');
+    require('view/bio.php');
 }
 
 function contact()
@@ -51,8 +70,8 @@ function contact()
     $lastpost = $postManager->getlastPost();
     $posts = $postManager->getPosts();
 
-    require('view/frontend/sidebar.php');
-    require('view/frontend/contact.php');
+    require('view/sidebar.php');
+    require('view/contact.php');
 }
 
 function mentionslegales()
@@ -62,7 +81,7 @@ function mentionslegales()
     $lastpost = $postManager->getlastPost();
     $posts = $postManager->getPosts();
 
-    require('view/frontend/sidebar.php');
-    require('view/frontend/mentionslegales.php');
+    require('view/sidebar.php');
+    require('view/mentionslegales.php');
 }
 

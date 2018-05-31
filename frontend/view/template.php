@@ -40,8 +40,7 @@
 
         <?= $content ?>
 
-        <?= $sidebar ?>
-   
+        <?= $sidebar ?>   
         
       </div>
     </div>

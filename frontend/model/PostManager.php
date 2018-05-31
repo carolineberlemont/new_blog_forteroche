@@ -33,8 +33,9 @@ class PostManager extends Manager
 // recupère un post précis en fonction de son id
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('SELECT id, title, content, DATE_FORMAT(post_date, \'%d/%m/%Y\') AS post_date_fr FROM posts WHERE id = ?');
-		$req->execute(array($postId));
+		$req = $db->prepare('SELECT title, content, DATE_FORMAT(post_date, \'%d/%m/%Y\') AS post_date_fr FROM posts WHERE id = ?');
+		
+		$req-> execute(array($postId));
 		$post = $req->fetch();
 
 	return $post;

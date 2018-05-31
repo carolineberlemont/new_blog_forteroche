@@ -1,5 +1,10 @@
 <?php $title = 'Billet simple pour l\'Alaska'; ?>
 
+<?php
+$error = isset($_GET['error']) ? $_GET['error'] : '';
+$password = isset($_GET['password']) ? $_GET['password'] : '';
+?>
+
 <?php ob_start(); ?>
 
 
@@ -12,16 +17,16 @@
           <div class="form_admin creme rounded">
 	     
 				<h5>Jean, Veuillez entrer votre login et votre mot de passe pour accéder à "Billet simple pour l'Alaska" :</h5>
-        			<form class="admin_form" action="view/listposts_admin.php">
+        			<form action="session-login.php" method="post">    				
 			            <p>
 			            </br>
-			            <input type="text" name="login" placeholder="Jean Forteroche" />
+			            <input type="text" name="login" placeholder="Votre login" />
 			        	</br>
 			        	</br>
-			            <input type="password" name="mot_de_passe" placeholder="**********"/>
+			            <input type="password" name="password" placeholder="Votre mot de passe"/>
 			        	</br>
 			        	</br>
-			            <input type="submit" value="Valider" />
+			            <input type="submit" value="Se connecter" />
 	           			</p>
         			</form>
         	</div>
@@ -29,5 +34,21 @@
 
     <?php $content = ob_get_clean(); ?>
 
-    <?php require ("template_admin.php"); ?>
+    <?php
+    switch ($error) {
+    	case 1:
+    	echo "Merci de saisir un login";
+    	break;
+
+    	case 2:
+    	echo  "Le mot de passe n'est pas valide...";
+    	break;
+
+    	case 3:
+    	echo "vous avez été deconnecté";
+    	break;
+    	    }
+  	?>
+
+      <?php require ("template_admin.php"); ?>
 

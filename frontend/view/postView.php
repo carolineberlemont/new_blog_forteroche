@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars($post['title']); ?>
+<?php $title = $post['title']; ?>
 
 <?php ob_start(); ?>
 
@@ -16,15 +16,11 @@
 
         <div class="blog-main blue rounded">
                 <div class="m-3 p-3 blog-post creme border rounded">
-                    <h3 class="title p-3 border-bottom">
-                    <?= $post['title'] ?>.</h3>
+                    <h3 class="title p-3 border-bottom"><?= $poster['title']; ?></h3>
                     </br>
-                    <h5><em>publié le <?= $post['post_date_fr'] ?> par Jean FORTEROCHE</em></h5>
-                    <hr size=4 width=70% align=center >
-                    <p><?= $post['content'] ?></p>
-                </div><!-- m-3 p-3 -->
-                
-        
+                    <h5><em>publié le <?= $poster['post_date_fr'] ?> par Jean FORTEROCHE</em></h5>
+                    <p><?= $poster['content'] ?></p>
+                </div><!-- m-3 p-3 -->     
 
         <!-- espace de commentaires -->
             <div class="boxCom m-2 p-2 bg-light border rounded">
@@ -34,8 +30,8 @@
                     <?php
                     while ($comment = $comments->fetch())
                     {
-                    ?>
-                        <p><strong>Par <?=$comment['pseudo_author'] ?></strong> 
+                    ?> 
+                        <p><strong>Par <?= $comment['pseudo_author'] ?></strong> 
                         publié le <?= $comment['comment_date_fr'] ?> 
 
                     <form action="index.php?action=reportcomment()" method="get">         
@@ -59,9 +55,9 @@
                                         </div>
 
                                         <div>
-                                            <label for="comment">Commentaire</label>
+                                            <label for="content">Commentaire</label>
                                             <br />
-                                            <textarea id="comment" name="comment" cols="65"></textarea>
+                                            <textarea id="content" name="content" cols="65"></textarea>
                                         </div>
 
                                         <input type="submit" class="creme" />
