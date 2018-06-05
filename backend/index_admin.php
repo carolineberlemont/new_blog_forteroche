@@ -4,8 +4,7 @@ require('controller/c.backend.php');
 try
 {     
     if ($_GET['action'] == 'home') {    
-    home_admin();
-    exit();
+    home_admin();    
     }
  
     elseif ($_GET['action'] == 'login') {

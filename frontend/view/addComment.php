@@ -45,9 +45,9 @@
                 </div><!--Com-->
 
         <!-- formulaire pour laisser un commentaire-->
-                <div class="formCom m-2 p-2 bg-light border rounded ">                    
+                <div class="formCom m-2 p-2 bg-light border rounded ">
                             <h3 class="title-comment pt-2">Laissez un commentaire</h3>
-                                <form action="index.php?action=addComment&id=<?= $poster['id'] ?>" method="post">                                    
+                                <form action="index.php?action=addComment&id=<?= $poster['id'] ?>" method="post">
                                         <div>
                                             <label for="author">Auteur</label>
                                             <br />

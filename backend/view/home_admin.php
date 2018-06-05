@@ -2,6 +2,7 @@
 
 <?php
 $error = isset($_GET['error']) ? $_GET['error'] : '';
+// ? c'est une condition "operateur ternaire", aller voir sur la doc ce que c'est
 $password = isset($_GET['password']) ? $_GET['password'] : '';
 ?>
 

@@ -31,24 +31,21 @@ function post()
      require('view/postView.php');   
 }
 
-function addComment($postId, $author, $content)
+function addComment($authorId, $postId, $author, $content)
 {
     $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
     $commentManager = new \Caro\Projet3\Frontend\Model\CommentManager();
-
-    $affectedLines = $commentManager->postComment($postId, $author, $content);
-        if ($affectedLines === false) {
-            die('Impossible d\'ajouter le commentaire !');
-        }
-        else {
-            header('Location: index.php?action=post&id=' . $postId);
-        }
+    
+    $poster = $postManager->getPost($_GET['id']); //appel d'un post selon son id
+    $comments = $commentManager->getComments($_GET['id']); // appel des commentaires liés au post
+    $affectedLines = $commentManager->postComment($authorId, $postId, $content);
+    $affectedAuthor = $commentManager->postCommentAuthor($author);
 
     $lastpost = $postManager->getlastPost();
     $posts = $postManager->getPosts();
 
     require('view/sidebar.php');
-    require('view/postView.php');
+    require('view/addcomment.php');
 
 }
 
