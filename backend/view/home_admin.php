@@ -18,7 +18,7 @@ $password = isset($_GET['password']) ? $_GET['password'] : '';
           <div class="form_admin creme rounded">
 	     
 				<h5>Jean, Veuillez entrer votre login et votre mot de passe pour accéder à "Billet simple pour l'Alaska" :</h5>
-        			<form action="session-login.php" method="post">    				
+        			<form action="index_admin.php?action=login" method="post">    				
 			            <p>
 			            </br>
 			            <input type="text" name="login" placeholder="Votre login" />

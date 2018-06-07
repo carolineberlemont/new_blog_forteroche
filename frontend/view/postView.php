@@ -55,10 +55,6 @@
                                         </div>
 
                                         <div>
-                                            <input type="hidden" id="authorId" name="authorId" />
-                                        </div>
-
-                                        <div>
                                             <label for="content">Commentaire</label>
                                             <br />
                                             <textarea id="content" name="content" cols="65"></textarea>

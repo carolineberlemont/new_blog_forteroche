@@ -1,8 +1,5 @@
 <?php
-
 require('controller/c.frontend.php');
-
-// chaque action doit appeler une page entiere
 
 try
     {
@@ -25,7 +22,7 @@ try
                 {
                     if (!empty($_POST['author']) && !empty($_POST['content'])) 
                     {
-                        addComment($_GET['id'], $_POST['authorId'],$_POST['author'], $_POST['content']);
+                        addComment($_GET['id'], $_POST['author'], $_POST['content']);
                     }
                     else 
                     {

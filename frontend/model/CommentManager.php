@@ -20,7 +20,7 @@ class CommentManager extends Manager
 	// poster de nouveaux commentaires
 	{
 		$db = $this->dbConnect();
-		$new_comment = $db->prepare('INSERT INTO comments(id_author, post_id, content, comment_date) VALUES(?, ?, ?, NOW())');
+		$new_comment = $db->prepare('INSERT INTO comments(id_author, post_id, content, comment_date) VALUES( ?, ?, ?, NOW())');
 		$new_comment->execute(array($authorId, $postId, $content));
 		
 		return $new_comment;
@@ -32,9 +32,26 @@ class CommentManager extends Manager
 		$db = $this->dbConnect();
 		$new_author = $db->prepare('INSERT INTO authors(pseudo_author) VALUES(?)');
 		$new_author->execute(array($author));
-
+		$new_author = $db->lastinsertId();
+var_dump($new_author);
 		return $new_author;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	// public function reportComment($commentId)
 	// //pour signaler un commentaire, récupère un commentaire précis
@@ -45,6 +62,10 @@ class CommentManager extends Manager
 	// 	$reportcomment = $req->fetch();
 
 	// 	return $reportcomment;
+
+	// le bouton signaler doit (routeur)action=signaler/ fonction dans cntrolleur qui aura le parametre($commentId), qu'on récupere en post et on l'ajoute au lien action=signaler&commentId...
+	// dans le modele, il faut recreer une fonction insertinto pour que l'info du signalement passe dans la base de donnée : la valeur reporting passe à 0 (false)
+	// pour le lecteur, il y a un message flash qui s'affiche (voir avec bootstrap) : il apparait en haut de l'écran et ça disparait ensuite
 
 	// }
 

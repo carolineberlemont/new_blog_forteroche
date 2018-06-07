@@ -3,12 +3,9 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
-function login_admin()
+function login_admin($login, $password)
 {
-    $login = isset ($_POST['login']) ? $_POST ['login'] : '' ;
-    $password = isset ($_POST['password']) ? $_POST ['password'] : '' ;
-
-        if ($login == '') {
+        if ($login != "Admin") {
             header('Location: home_admin.php?error=1');
         }
         elseif ($password != "kangourou") {
@@ -20,102 +17,82 @@ function login_admin()
             $_SESSION['password'] = $password;
             $_SESSION['logged'] = true;
 
-        header('Location : listposts.php');
+        header('Location : listposts_admin.php');
 }
-
-function isLogged()
-    {
-        return $_SESSION['connected'] ? false;
-    }
-    if (isLogged()) {
-        if ($action === 'listposts') 
-        {
-            listPosts();
-            exit();
-        }
-     
-        if ($action === 'newpost') 
-        {
-            newPost();
-            exit();
-        }
-    }
- 
-header('Location: /index.php?action=home');
 
 
 function home_admin()
 {
     require('view/home_admin.php');
 }
-function listposts_admin()
-{
-    $postManager = new \Caro\Projet3\Backend\Model\PostManager();   
+// function listposts_admin()
+// {
+//     $postManager = new \Caro\Projet3\Backend\Model\PostManager();   
 
-    $posts = $postManager->getPosts(); 
+//     $posts = $postManager->getPosts(); 
    
-    require('view/listposts_admin.php');
-}
+//     require('view/listposts_admin.php');
+// }
 
-function post_admin()
-{
-    $postManager = new \Caro\Projet3\Backend\Model\PostManager();
-    $commentManager = new \Caro\Projet3\Backend\Model\CommentManager();
+// function post_admin()
+// {
+//     $postManager = new \Caro\Projet3\Backend\Model\PostManager();
+//     $commentManager = new \Caro\Projet3\Backend\Model\CommentManager();
 
-    $post = $postManager->getPost($_GET['id']); //appel d'un post selon son id
-    $comments = $commentManager->getComments($_GET['id']); // appel des commentaires liés au post
+//     $post = $postManager->getPost($_GET['id']); //appel d'un post selon son id
+//     $comments = $commentManager->getComments($_GET['id']); // appel des commentaires liés au post
 
-    require('view/post_admin.php');
-}
+//     require('view/post_admin.php');
+// }
 
-function newpost_admin()
-{
-    $postManager = new \Caro\Projet3\Backend\Model\PostManager();
+// function newpost_admin()
+// {
+//     $postManager = new \Caro\Projet3\Backend\Model\PostManager();
 
-    require('view/newpost_admin.php');
-}
+//     require('view/newpost_admin.php');
+// }
 
-function addpost_admin($title, $content)
-{
-    $postManager = new \Caro\Projet3\Backend\Model\PostManager();
+// function addpost_admin($title, $content)
+// {
+//     $postManager = new \Caro\Projet3\Backend\Model\PostManager();
 
-    $affectedLines = $postManager->addPost($title, $content);
+//     $affectedLines = $postManager->addPost($title, $content);
 
-    require('view/addpost_admin.php');
-}
+//     require('view/addpost_admin.php');
+// }
 
-function modifiedpost_admin($postID, $title, $content)
-{
-    $postManager = new \Caro\Projet3\Backend\Model\PostManager();
-    $commentManager = new \Caro\Projet3\Backend\Model\CommentManager();
+// function modifiedpost_admin($postID, $title, $content)
+// {
+//     $postManager = new \Caro\Projet3\Backend\Model\PostManager();
+//     $commentManager = new \Caro\Projet3\Backend\Model\CommentManager();
 
-    $modifiedLines = $postManager->modifiedPost($postID, $title, $content);
-    $post = $postManager->getPost($_POST['id']);
-    $comments = $commentManager->getComments($_POST['id']); 
+//     $modifiedLines = $postManager->modifiedPost($postID, $title, $content);
+//     $post = $postManager->getPost($_POST['id']);
+//     $comments = $commentManager->getComments($_POST['id']); 
 
-    require('view/modifiedpost_admin.php');
-}
+//     require('view/modifiedpost_admin.php');
+// }
 
-function deletedpost_admin($id)
-{
-    $postManager = new \Caro\Projet3\Backend\Model\PostManager();
+// function deletedpost_admin($id)
+// {
+//     $postManager = new \Caro\Projet3\Backend\Model\PostManager();
 
-    $deletedLines = $postManager->deletedPost($id);
+//     $deletedLines = $postManager->deletedPost($id);
 
-    require('view/deletedpost_admin.php');
-}
+//     require('view/deletedpost_admin.php');
+// }
 
-function deletecomment_admin($id, $postid)
-{
-    $postManager = new \Caro\Projet3\Backend\Model\PostManager();
-    $commentManager = new \Caro\Projet3\Backend\Model\CommentManager();
+// function deletecomment_admin($id, $postid)
+// {
+//     $postManager = new \Caro\Projet3\Backend\Model\PostManager();
+//     $commentManager = new \Caro\Projet3\Backend\Model\CommentManager();
 
-    $deletedLines = $commentManager->deleteComment($id);
-    $post = $postManager->getPost($postid);
-    $comments = $commentManager->getComments($postid); 
+//     $deletedLines = $commentManager->deleteComment($id);
+//     $post = $postManager->getPost($postid);
+//     $comments = $commentManager->getComments($postid); 
 
-    require('view/deletecomment_admin.php');
-}
+//     require('view/deletecomment_admin.php');
+// }
 
 
 

@@ -31,15 +31,15 @@ function post()
      require('view/postView.php');   
 }
 
-function addComment($authorId, $postId, $author, $content)
+function addComment($postId, $author, $content)
 {
     $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
     $commentManager = new \Caro\Projet3\Frontend\Model\CommentManager();
-    
-    $poster = $postManager->getPost($_GET['id']); //appel d'un post selon son id
-    $comments = $commentManager->getComments($_GET['id']); // appel des commentaires liés au post
-    $affectedLines = $commentManager->postComment($authorId, $postId, $content);
+        // appel des commentaires liés au post
     $affectedAuthor = $commentManager->postCommentAuthor($author);
+    $affectedLines = $commentManager->postComment($affectedAuthor, $postId, $content);
+    $poster = $postManager->getPost($_GET['id']); //appel d'un post selon son id
+    $comments = $commentManager->getComments($_GET['id']); 
 
     $lastpost = $postManager->getlastPost();
     $posts = $postManager->getPosts();
