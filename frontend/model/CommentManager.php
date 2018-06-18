@@ -10,7 +10,7 @@ class CommentManager extends Manager
 	// recupère les commentaires associés à un id de post
 	{
 		    $db = $this->dbConnect();
-		    $comments = $db->prepare('SELECT comments.id, authors.pseudo_author, comments.content, comments.post_id, comments.reporting, DATE_FORMAT(comments.comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments INNER JOIN authors ON comments.id_author = authors.id_author WHERE post_id = ? ORDER BY comment_date DESC');
+		    $comments = $db->prepare('SELECT comments.id_comment, authors.pseudo_author, comments.content, comments.id_post, comments.reporting, DATE_FORMAT(comments.date_comment, \'%d/%m/%Y à %Hh%imin\') AS date_comment_fr FROM comments INNER JOIN authors ON comments.id_author = authors.id_author WHERE id_post = ? ORDER BY date_comment DESC');
 		   	$comments->execute(array($postId));		   
 
 		return $comments;
@@ -20,11 +20,10 @@ class CommentManager extends Manager
 	// poster de nouveaux commentaires
 	{
 		$db = $this->dbConnect();
-		$new_comment = $db->prepare('INSERT INTO comments(id_author, post_id, content, comment_date) VALUES( ?, ?, ?, NOW())');
+		$new_comment = $db->prepare('INSERT INTO comments(id_author, id_post, content, date_comment) VALUES( ?, ?, ?, NOW())');
 		$new_comment->execute(array($authorId, $postId, $content));
-		
+
 		return $new_comment;
-		// retourne la valeur de la fonction execute : false /true
 	}
 
 	public function postCommentAuthor($author)
@@ -33,40 +32,18 @@ class CommentManager extends Manager
 		$new_author = $db->prepare('INSERT INTO authors(pseudo_author) VALUES(?)');
 		$new_author->execute(array($author));
 		$new_author = $db->lastinsertId();
-var_dump($new_author);
+
 		return $new_author;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	// public function reportComment($commentId)
-	// //pour signaler un commentaire, récupère un commentaire précis
-	// {
-	// 	$db = $this->dbConnect
-	// 	$req = $db->prepare('SELECT comments.id, authors.pseudo_author, comments.content, comments.post_id, comments.reporting, DATE_FORMAT(comments.comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments INNER JOIN authors ON comments.author = authors.id_author WHERE id = ?');
-	// 	$req->execute(array($commentId));
-	// 	$reportcomment = $req->fetch();
-
-	// 	return $reportcomment;
-
-	// le bouton signaler doit (routeur)action=signaler/ fonction dans cntrolleur qui aura le parametre($commentId), qu'on récupere en post et on l'ajoute au lien action=signaler&commentId...
-	// dans le modele, il faut recreer une fonction insertinto pour que l'info du signalement passe dans la base de donnée : la valeur reporting passe à 0 (false)
-	// pour le lecteur, il y a un message flash qui s'affiche (voir avec bootstrap) : il apparait en haut de l'écran et ça disparait ensuite
-
-	// }
+	public function reportComment($commentId)
+	//pour signaler un commentaire, récupère un commentaire précis
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare('UPDATE comments SET reporting = 0 WHERE id_comment = :id_comment');
+		$req->execute(['id_comment' => $commentId]);
+		
+		return $req;
+	}
 
 }

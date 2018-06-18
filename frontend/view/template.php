@@ -15,7 +15,6 @@
     
         
     <body>
-
     <nav class="navbar navbar-toggleable-md fixed-top blue">
         <button class="navbar-toggler navbar-toggler-right navbar-inverse" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -33,9 +32,17 @@
                 </li>
             </ul>
         </div>
-    </nav>  
+    </nav> 
 
     <div class="container">
+        <?php 
+            if (isset($messageFlash)): ?>
+                <div class="alert alert-success" role="alert">
+                <?= $messageFlash ?>
+                </div>
+       
+        <?php endif ?>
+
       <div class="row row-offcanvas row-offcanvas-right">
 
         <?= $content ?>

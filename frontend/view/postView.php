@@ -2,6 +2,7 @@
 
 <?php ob_start(); ?>
 
+
     <div class="col-12 col-md-9">
                   <p class="float-right hidden-md-up">
                     <button type="button" class="btn btn-blue btn-sm blue p-1 m-1" data-toggle="offcanvas">Autres épisodes</button>
@@ -32,11 +33,9 @@
                     {
                     ?> 
                         <p><strong>Par <?= $comment['pseudo_author'] ?></strong> 
-                        publié le <?= $comment['comment_date_fr'] ?> 
+                        publié le <?= $comment['date_comment_fr'] ?> 
 
-                    <form action="index.php?action=reportcomment()" method="get">         
-                    <input type="submit" value="Signaler" class="blue" /></p>
-                    </form>
+                <a href="index.php?action=reporting&id=<?= $poster['id'] ?>&comment_id=<?= $comment['id_comment'] ?>" class="blue">Signaler</a>
                     
                         <p><?= $comment['content'] ?></p>
                     <?php
@@ -60,7 +59,7 @@
                                             <textarea id="content" name="content" cols="65"></textarea>
                                         </div>
 
-                                        <input type="submit" class="creme" />
+                                        <input type="submit" value="Envoyer" class="creme" />
 
                                 </form>
                 </div><!--/formCom-->

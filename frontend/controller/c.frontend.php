@@ -2,6 +2,7 @@
 
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+require_once('model/session.class.php');
 
 
 function home()
@@ -16,14 +17,14 @@ function home()
     require('view/home.php');
 }
 
-function post()
+function post($postId)
 {
     $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
     $commentManager = new \Caro\Projet3\Frontend\Model\CommentManager();
 
-    $poster = $postManager->getPost($_GET['id']); //appel d'un post selon son id
-    $comments = $commentManager->getComments($_GET['id']); // appel des commentaires liés au post
-
+    $poster = $postManager->getPost($postId); 
+    $comments = $commentManager->getComments($postId);
+    
     $lastpost = $postManager->getlastPost();
     $posts = $postManager->getPosts();
 
@@ -38,15 +39,34 @@ function addComment($postId, $author, $content)
         // appel des commentaires liés au post
     $affectedAuthor = $commentManager->postCommentAuthor($author);
     $affectedLines = $commentManager->postComment($affectedAuthor, $postId, $content);
-    $poster = $postManager->getPost($_GET['id']); //appel d'un post selon son id
-    $comments = $commentManager->getComments($_GET['id']); 
+    $poster = $postManager->getPost($postId); //appel d'un post selon son id
+    $comments = $commentManager->getComments($postId); 
 
     $lastpost = $postManager->getlastPost();
     $posts = $postManager->getPosts();
 
     require('view/sidebar.php');
     require('view/addcomment.php');
+}
 
+function reporting($commentId, $postId)
+{
+    $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
+    $commentManager = new \Caro\Projet3\Frontend\Model\CommentManager();
+    $Session = new \Caro\Projet3\Frontend\Model\Session();
+
+    $poster = $postManager->getPost($postId);
+    $comments = $commentManager->getComments($postId); 
+
+    $reportin = $commentManager->reportComment($commentId);
+    $messageFlash = "Le commentaire a bien été signalé";
+    $error_message = "Une erreur s'est produite, veuilliez essayer de nouveau";
+    
+    $lastpost = $postManager->getlastPost();
+    $posts = $postManager->getPosts();
+
+    require('view/sidebar.php');
+    require('view/postview.php');
 }
 
 function bio()
@@ -63,6 +83,19 @@ function bio()
 function contact()
 {
     $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
+
+    $lastpost = $postManager->getlastPost();
+    $posts = $postManager->getPosts();
+
+    require('view/sidebar.php');
+    require('view/contact.php');
+}
+
+function sendemail ($subject, $message, $header_name, $header_from)
+{
+    $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
+
+    $mail = mail('carolineberlemont@gmail.com', $subject, $message, $header_name, $header_from);
 
     $lastpost = $postManager->getlastPost();
     $posts = $postManager->getPosts();

@@ -1,0 +1,23 @@
+sur le frontend : 
+- il faut paramétrer l'envoi du formulaire dans une boite mail (mais comment vérifier que ça fonctionne avant le transfert du site en externe?) -> a priori, fait, mais voir avec etienne si ca va fonctionner
+
+- il faut paramétrer un message flash quand les lecteurs envoient un mail à forteroche mais également quand ils signalent un commentaire : faut il passer par un systeme de session ?
+
+- il faut réussir à faire signaler un commentaire : on ne doit plus en être loin
+
+sur le backend : 
+- il faut réussir à faire une session pour forteroche -> Etienne devait voir l'erreur sur le controleur backend en ligne 100
+
+en premier : on finit la requet sql de signalement des commentaires 
+en second, on voit si l'histoire de la fenetre pop up, ca doit se faire avec un systeme de session ou par le biais d'une fenetre modale (cf cours sur bootstrap)
+en troisième
+
+a faire pour le 19 juin : 
+-  a priori, maintenant, les signalement de commentaires fonctionnent. par contre, apres, on ne recupère pas le template, il faut trouver pourquoi.
+-> ok, ca fonctionne !
+
+- pour les messages flash : il faut créer le tableau qui permet, à chque action de messages flash d'envoyer soit true, soit falsh et donc soit un message vert, soit un message rouge (cf doc php enregistré dans les favoris)
+
+- il faut refaire un git
+
+- pour l'envoi du mail, voir aussi la doc php. il faut recréer une fonction au niveau du controlleur pour envoyer tout ce qu'il faut.
