@@ -12,12 +12,30 @@ en premier : on finit la requet sql de signalement des commentaires
 en second, on voit si l'histoire de la fenetre pop up, ca doit se faire avec un systeme de session ou par le biais d'une fenetre modale (cf cours sur bootstrap)
 en troisième
 
+
+
+
+
+
 a faire pour le 19 juin : 
 -  a priori, maintenant, les signalement de commentaires fonctionnent. par contre, apres, on ne recupère pas le template, il faut trouver pourquoi.
 -> ok, ca fonctionne !
 
-- pour les messages flash : il faut créer le tableau qui permet, à chque action de messages flash d'envoyer soit true, soit falsh et donc soit un message vert, soit un message rouge (cf doc php enregistré dans les favoris)
+- pour les messages flash : il faut créer le tableau qui permet, à chque action de messages flash d'envoyer soit true, soit flash et donc soit un message vert, soit un message rouge (cf doc php enregistré dans les favoris)
 
 - il faut refaire un git
 
 - pour l'envoi du mail, voir aussi la doc php. il faut recréer une fonction au niveau du controlleur pour envoyer tout ce qu'il faut.
+
+Revoir les système de message flash en créant un tableau type $flash['code']= 0 ou 1 et le contenu du message $flash['content'] ='le contenu
+
+		<?php
+		$flash = (array 'message', 'error_message')
+		?>
+
+					ou		
+
+		<?php
+		$flash[0] = 'message';
+		$flash[1] = 'error_message';
+		?>

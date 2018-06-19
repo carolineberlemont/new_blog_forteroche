@@ -36,9 +36,14 @@
 
     <div class="container">
         <?php 
-            if (isset($messageFlash)): ?>
+            if (isset($messageflash)): ?>
                 <div class="alert alert-success" role="alert">
-                <?= $messageFlash ?>
+                <?= $messageFlash['$message'] ?>
+                </div>
+        <?php
+            elseif ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $messageFlash['$error_message'] ?>
                 </div>
        
         <?php endif ?>

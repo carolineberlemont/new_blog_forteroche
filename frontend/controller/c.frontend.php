@@ -2,7 +2,7 @@
 
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
-require_once('model/session.class.php');
+require_once('model/MessageFlashManager.php');
 
 
 function home()
@@ -49,17 +49,18 @@ function addComment($postId, $author, $content)
     require('view/addcomment.php');
 }
 
-function reporting($commentId, $postId)
+function reporting($commentId, $postId, $message, $error_message)
 {
     $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
     $commentManager = new \Caro\Projet3\Frontend\Model\CommentManager();
-    $Session = new \Caro\Projet3\Frontend\Model\Session();
+    $messageflashManager = new \Caro\Projet3\Frontend\Model\MessageFlashManager();
 
     $poster = $postManager->getPost($postId);
     $comments = $commentManager->getComments($postId); 
 
-    $reportin = $commentManager->reportComment($commentId);
-    $messageFlash = "Le commentaire a bien été signalé";
+    $reporting = $commentManager->reportComment($commentId);
+    $messageflash = $messageflashManager->mflash($message, $error_message)
+    $message = "Le commentaire a bien été signalé";
     $error_message = "Une erreur s'est produite, veuilliez essayer de nouveau";
     
     $lastpost = $postManager->getlastPost();
