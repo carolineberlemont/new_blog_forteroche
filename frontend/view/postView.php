@@ -26,6 +26,17 @@
         <!-- espace de commentaires -->
             <div class="boxCom m-2 p-2 bg-light border rounded">
                 <h3 class="title p-3">Commentaires</h3>
+
+            <?php if ($flash['error']): ?>
+                <div class="alert alert-danger" role="alert">
+                <?= $flash['content'] ?>
+                </div>
+            <?php else : ?>
+                <div class="alert alert-success" role="alert">
+                <?= $flash['content'] ?>
+                </div>
+            <?php endif ?>
+
         <!-- commentaires deja écrits -->
                 <div class="Com m-2 p-2 creme border rounded">
                     <?php

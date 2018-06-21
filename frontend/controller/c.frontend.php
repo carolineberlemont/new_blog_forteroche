@@ -49,7 +49,7 @@ function addComment($postId, $author, $content)
     require('view/addcomment.php');
 }
 
-function reporting($commentId, $postId, $message, $error_message)
+function reporting($commentId, $postId)
 {
     $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
     $commentManager = new \Caro\Projet3\Frontend\Model\CommentManager();
@@ -58,10 +58,18 @@ function reporting($commentId, $postId, $message, $error_message)
     $poster = $postManager->getPost($postId);
     $comments = $commentManager->getComments($postId); 
 
-    $reporting = $commentManager->reportComment($commentId);
-    $messageflash = $messageflashManager->mflash($message, $error_message)
-    $message = "Le commentaire a bien été signalé";
-    $error_message = "Une erreur s'est produite, veuilliez essayer de nouveau";
+        
+        if ($reporting = $commentManager->reportComment($commentId))
+        {
+            $flash['error']= false;
+            $flash['content']= 'le commentaire a bien été signalé';
+        }
+        else
+        {
+            $flash['error']= true;
+            $flash['content']= 'une erreur s\'est produite, veuilliez essayer de nouveau';
+        }
+    // $flash['error'] n\'est jamais "true" : pour cela il faudrait que quelqu'un change l'id du com dans l'url. Il faudrait créer une fonction dans commentmanager qui teste si un commentaire exist (en utilisant son id)
     
     $lastpost = $postManager->getlastPost();
     $posts = $postManager->getPosts();
@@ -97,6 +105,18 @@ function sendemail ($subject, $message, $header_name, $header_from)
     $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
 
     $mail = mail('carolineberlemont@gmail.com', $subject, $message, $header_name, $header_from);
+
+    
+    if ($mail = mail('carolineberlemont@gmail.com', $subject, $message, $header_name, $header_from))
+        {
+            $flash['error']= false;
+            $flash['content']= 'le mail a bien été envoyé';
+        }
+        else
+        {
+            $flash['error']= true;
+            $flash['content']= 'une erreur s\'est produite, veuilliez essayer de nouveau';
+        }
 
     $lastpost = $postManager->getlastPost();
     $posts = $postManager->getPosts();

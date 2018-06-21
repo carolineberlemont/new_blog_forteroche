@@ -45,8 +45,8 @@ try
                 contact();
             }
         elseif ($_GET['action'] == 'sendEmail') {
-            if (!empty($_POST['subject']) && !empty($_POST['message']) && !empty($_POST['Nom']) && !empty($_POST['email'])) {
-                sendemail($_POST['subject'], $_POST['message'], $_POST['Nom'], $_POST['email']);
+            if (!empty($_POST['subject']) && !empty($_POST['message']) && !empty($_POST['nom']) && !empty($_POST['email'])) {
+                sendemail($_POST['subject'], $_POST['message'], $_POST['nom'], $_POST['email']);
             }
             else {
                 echo 'Erreur : tous les champs ne sont pas remplis';

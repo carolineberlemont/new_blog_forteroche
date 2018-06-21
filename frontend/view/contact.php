@@ -16,13 +16,23 @@
 
             <div class="contact rounded creme">
                 <h3 class="title p-3 border-bottom">Ecrivez-moi</h3>                           
-                <div class="form-contact">    
+                <div class="form-contact">  
 
-                    <form id="contact" action="contact.php" methode="post">
+                        <?php if ($flash['error']): ?>
+                            <div class="alert alert-danger" role="alert">
+                            <?= $flash['content'] ?>
+                            </div>
+                        <?php else : ?>
+                            <div class="alert alert-success" role="alert">
+                            <?= $flash['content'] ?>
+                            </div>
+                        <?php endif ?>  
+
+                    <form id="contact" action="view/contact.php" methode="post">
             
                         <div class="form-group pt-2">
                             <label for="Nom">Votre Nom</label>
-                            <input type="text" name="Nom" id="Nom" class="form-control creme"  placeholder="Jean Forteroche">
+                            <input type="text" name="nom" id="Nom" class="form-control creme"  placeholder="Jean Forteroche">
                             <span id="error-message"></span>
                         </div>
 

@@ -34,19 +34,7 @@
         </div>
     </nav> 
 
-    <div class="container">
-        <?php 
-            if (isset($messageflash)): ?>
-                <div class="alert alert-success" role="alert">
-                <?= $messageFlash['$message'] ?>
-                </div>
-        <?php
-            elseif ?>
-                <div class="alert alert-danger" role="alert">
-                    <?= $messageFlash['$error_message'] ?>
-                </div>
-       
-        <?php endif ?>
+    <div class="container">       
 
       <div class="row row-offcanvas row-offcanvas-right">
 

@@ -37,13 +37,12 @@ class CommentManager extends Manager
 	}
 
 	public function reportComment($commentId)
-	//pour signaler un commentaire, récupère un commentaire précis
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE comments SET reporting = 0 WHERE id_comment = :id_comment');
-		$req->execute(['id_comment' => $commentId]);
-		
-		return $req;
+		$res=$req->execute(['id_comment' => $commentId]);
+
+		return $res;
 	}
 
 }

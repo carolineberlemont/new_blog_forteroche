@@ -12,3 +12,4 @@ class MessageFlashManager extends Manager
     	$flash[1] = $error_message;
 	}
 }
+
