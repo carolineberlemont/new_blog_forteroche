@@ -27,16 +27,6 @@
             <div class="boxCom m-2 p-2 bg-light border rounded">
                 <h3 class="title p-3">Commentaires</h3>
 
-            <?php if ($flash['error']): ?>
-                <div class="alert alert-danger" role="alert">
-                <?= $flash['content'] ?>
-                </div>
-            <?php else : ?>
-                <div class="alert alert-success" role="alert">
-                <?= $flash['content'] ?>
-                </div>
-            <?php endif ?>
-
         <!-- commentaires deja écrits -->
                 <div class="Com m-2 p-2 creme border rounded">
                     <?php
@@ -45,9 +35,24 @@
                     ?> 
                         <p><strong>Par <?= $comment['pseudo_author'] ?></strong> 
                         publié le <?= $comment['date_comment_fr'] ?> 
+<?php
+if ($comment['reporting'] == 1)
+{
+?>
+    <a class="btn blue" href="index.php?action=reporting&id=<?= $poster['id'] ?>&comment_id=<?= $comment['id_comment'] ?>" role="button">Signaler</a>   
+<?php                    
+}
+?>
 
-                <a href="index.php?action=reporting&id=<?= $poster['id'] ?>&comment_id=<?= $comment['id_comment'] ?>" class="blue">Signaler</a>
-                    
+<?php
+if ($comment['reporting'] == 0)
+{
+?>
+    <button type="button" class="btn btn-outline-dark" disabled>Déjà signalé</button>
+<?php                    
+}
+?>
+                
                         <p><?= $comment['content'] ?></p>
                     <?php
                     } 

@@ -1,9 +1,13 @@
 <?php
 
+namespace Caro\Projet3\Frontend\controller;
+
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
- function home()
+class Controller
+{
+    public function home()
     {
         
         $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
@@ -15,7 +19,7 @@ require_once('model/CommentManager.php');
         require('view/home.php');
     }
 
-    function post($postId)
+    public function post($postId)
     {
         $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
         $commentManager = new \Caro\Projet3\Frontend\Model\CommentManager();
@@ -30,7 +34,7 @@ require_once('model/CommentManager.php');
          require('view/postView.php');   
     }
 
-    function addComment($postId, $author, $content)
+    public function addComment($postId, $author, $content)
     {
         $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
         $commentManager = new \Caro\Projet3\Frontend\Model\CommentManager();
@@ -47,7 +51,7 @@ require_once('model/CommentManager.php');
         require('view/postView.php');
     }
 
-    function reporting($commentId, $postId)
+    public function reporting($commentId, $postId)
     {   
         $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
         $commentManager = new \Caro\Projet3\Frontend\Model\CommentManager();
@@ -75,7 +79,7 @@ require_once('model/CommentManager.php');
         require('view/postview.php');
     }
 
-    function bio()
+    public function bio()
     {
         $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
 
@@ -86,7 +90,7 @@ require_once('model/CommentManager.php');
         require('view/bio.php');
     }
 
-    function contact()
+    public function contact()
     {
         $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
 
@@ -97,7 +101,7 @@ require_once('model/CommentManager.php');
         require('view/contact.php');
     }
 
-    function sendemail ($subject, $message, $header_name, $header_from)
+    public function sendemail ($subject, $message, $header_name, $header_from)
     {
         $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
 
@@ -122,7 +126,7 @@ require_once('model/CommentManager.php');
         require('view/contact.php');
     }
 
-    function mentionslegales()
+    public function mentionslegales()
     {
         $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
         
@@ -132,3 +136,4 @@ require_once('model/CommentManager.php');
         require('view/sidebar.php');
         require('view/mentionslegales.php');
     }
+}

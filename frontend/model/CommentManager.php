@@ -41,8 +41,13 @@ class CommentManager extends Manager
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE comments SET reporting = 0 WHERE id_comment = :id_comment');
 		$res=$req->execute(['id_comment' => $commentId]);
-
-		return $res;
+var_dump($req->rowCount());
+		return $req->rowCount();
 	}
+
+	// public function getComments
+	// {
+	// 	$db = $this->dbConnect();
+	// }
 
 }

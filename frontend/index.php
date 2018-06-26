@@ -55,8 +55,9 @@ try
         elseif ($_GET['action'] == 'mentionslegales') {
                 mentionslegales();
             }    
-        }      
-    else{
+        }
+
+    else {
             home();
         }
     }

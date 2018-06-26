@@ -1,0 +1,49 @@
+sur le frontend :
+
+- message flash pour signalement des commentaires : comme on tourne sur la page postView, la variable $flash n'est pas définie avant signalement. On fait comment ? Est-ce qu'on est obligé de rediriger sur une autre vue ?
+
+- message flash pour signalement des commentaires : (contrôleur) $flash['error'] n'est jamais "true" : pour cela il faudrait que quelqu'un change l'id du com dans l'url. Il faudrait créer une fonction dans commentmanager qui teste si un commentaire existe (en utilisant son id) -> est-ce necessaire ?
+
+- que pense-tu de mon paramétrage d'envoi d'email ? a valider bien sûr lors du passage sur web
+-> quand j'envois l'email, la redirection avec sendEmail ne se fait pas et le contenu de l'architecture du mail apparait dans la barre uRL. Pourquoi ? 
+
+- message flash pour valider l'envoi d'un email : comme on tourne sur la page Contact, la variable $flash n'est pas définie avant envoi de l'email. On fait comment ? Est ce qu'on est obligé de rediriger vers une autre vue ?
+
+
+
+sur le backend : 
+- pour le momend, deux backends : l'un ou j'ai essayer de bidouiller pour la session admin et l'autre pas
+
+Sur le backend_nosession : 
+- je veux faire une page d'affichage de l'ensemble des commentaires de l'ensemble des posts mais les commentaires ne s'affichent pas. Pourquoi? 
+
+ur le backend_session :
+- il faut réussir à faire une session pour forteroche -> erreur sur la dernière ligne du contrôleur et je ne voit absoluemnt pas quel est le pbl.
+
+
+
+
+apres mentoring
+
+FAIT :
+
+- sur le frontend, faire en sorte de tourner sur postview apres signalement et apres nouveau commentaire (donc supprimer la vue addcomment )
+-> ok, fait mais il y a un pbl d'affichage des bouton Signaler/deja signalé qui ne s'affichent correctement qu'apres avoir relancé la page
+
+- pour les controleurs, passer par une class qui regroupe l'ensemble des fonctions qui y sont présentes.
+-> fait dans un fichier à part car je 'narrive pas à le faire fonctionner : faut-il que je le passe dans le dossier model? Je ne vois pas vraiment l'interet de la class sur ce coup là?
+
+- pour les messages flash, comme on fait deux fois le même fonctionnement, le mettre dans le template -> ca devrait fonctionner avec l'isset.
+-> fait
+
+A FAIRE : 
+
+- afficher deux tableaux dans les commentaires : un pour les signaler et un pour les non signalés. 
+
+- pour le code, normes PSR : pSR 1  et 2 (phpcode sniffer)
+https://www.php-fig.org/psr/
+https://github.com/squizlabs/PHP_CodeSniffer
+
+- pour les sessions : https://www.grafikart.fr/formations/php-debutant/sessions-cookies
+
+
