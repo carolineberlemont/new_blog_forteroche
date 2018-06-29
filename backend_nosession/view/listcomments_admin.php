@@ -5,8 +5,7 @@
             <div class="jumbotron">
                 <h1>BILLET SIMPLE POUR L'ALASKA</h1>
                 <h2>Bonjour Jean FORTEROCHE</h2>
-                <h5>Ici, vous pouvez modérer les commentaires de vos lecteurs</h5>
-                <h5>Les commentaires signalés apparaissent en rouge</h5>              
+                <h5>Ici, vous pouvez modérer les commentaires de vos lecteurs. Les commentaires signalés apparaissent en rouge</h5>              
             </div>
 
                     <?php
@@ -20,14 +19,12 @@
 
                                 <p><strong>Par <?= $comment['pseudo_author'] ?> 
                                 publié le <?= $comment['date_comment_fr'] ?></strong>
-
-                                <button class="creme rounded">
-                                <a href="index_admin.php?action=deletecomment&id=<?=$comment['id_comment'] ?>&post_id=<?=$comment['id_post'] ?>">Supprimer</a></button>
-
                                 <?= $comment['content'] ?></p>
-                            </div>
-                        
-                                 
+                                <button class="creme rounded">
+                                <a href="index_admin.php?action=deletedComment&id=<?= $comment['id_comment'] ?>">Supprimer</a></button>
+
+                                
+                            </div>                                 
                           
                     <?php elseif (isset($comment) && $comment['reporting'] == 1): ?>
                         
@@ -35,11 +32,11 @@
 
                                 <p><strong>Par <?= $comment['pseudo_author'] ?> 
                                 publié le <?= $comment['date_comment_fr'] ?></strong>
-
-                                <button class="creme rounded">
-                                <a href="index_admin.php?action=deletecomment&id=<?=$comment['id_comment'] ?>&post_id=<?=$comment['id_post'] ?>">Supprimer</a></button>
-
                                 <?= $comment['content'] ?></p>
+                                <button class="creme rounded">
+                                <a href="index_admin.php?action=deletecomment&id=<?= $comment['id_comment'] ?>">Supprimer</a></button>
+
+                                
                             </div>
                                                        
 

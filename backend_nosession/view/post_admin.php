@@ -17,10 +17,7 @@
                     <input type="text" name="title" value="<?= $post['title'] ?>" size="100" />                   
                     </br>
                     </br>
-                    <textarea name="content">                   
-                    <hr size=4 width=70% align=center >
-                    <?= $post['content'] ?>                
-                    </textarea>
+                    <textarea name="content"><?= $post['content'] ?></textarea>
 
                     <input type="hidden" value="<?= $post['id'] ?>" name="id" />
                     <input type="submit" value="Enregistrer" class="blue" />

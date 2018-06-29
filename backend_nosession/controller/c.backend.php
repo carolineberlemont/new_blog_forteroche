@@ -21,9 +21,9 @@ function listPosts_admin()
 function listComments_admin()
 {
     $commentManager = new \Caro\Projet3\Backend\Model\CommentManager();
-
+     
     $comments = $commentManager->getComments();
-
+    
     require('view/listcomments_admin.php');
 }
 
@@ -58,8 +58,8 @@ function modifiedPost_admin($postID, $title, $content)
     $postManager = new \Caro\Projet3\Backend\Model\PostManager();
     $commentManager = new \Caro\Projet3\Backend\Model\CommentManager();
 
-    $posts = $postManager->getPosts();
     $modifiedLines = $postManager->modifiedPost($postID, $title, $content);
+    $posts = $postManager->getPosts();    
     $post = $postManager->getPost($_POST['id']);
     $comments = $commentManager->getComments($_POST['id']); 
 
@@ -70,20 +70,26 @@ function deletedpost_admin($id)
 {
     $postManager = new \Caro\Projet3\Backend\Model\PostManager();
 
-    $posts = $postManager->getPosts();
     $deletedLines = $postManager->deletedPost($id);
+    $posts = $postManager->getPosts();    
 
     require('view/listposts_admin.php');
 }
 
-function deletecomment_admin($id, $postid)
+function deletedComment_admin($id)
 {
-    $postManager = new \Caro\Projet3\Backend\Model\PostManager();
     $commentManager = new \Caro\Projet3\Backend\Model\CommentManager();
 
-    $deletedLines = $commentManager->deleteComment($id);
-    $post = $postManager->getPost($postid);
-    $comments = $commentManager->getComments($postid); 
+    $deletedCom = $commentManager->deletedComment($id);
+    $comments = $commentManager->getComments();       
 
-    require('view/deletecomment_admin.php');
+    require('view/listcomments_admin.php');
+}
+
+function delatedSession()
+{
+    session_start ();
+    session_unset ();
+    session_destroy ();
+    header ('location: index_admin.php');
 }

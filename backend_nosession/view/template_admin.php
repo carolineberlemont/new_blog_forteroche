@@ -1,3 +1,7 @@
+<?php session_start();
+$_SESSION['login'] = 'forteroche';
+$_SESSION['mot_de_passe'] = 'kangourou'; ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,6 +35,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="?action=listcomments">Liste des commentaires</a>
                 </li>
+                <li>
+                    <button class="creme pull-right"><a href="#">Deconnexion</a></button>
+                <li>
             </ul>
         </div>    
     </nav>  

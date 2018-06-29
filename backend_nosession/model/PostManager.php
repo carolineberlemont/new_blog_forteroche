@@ -45,13 +45,14 @@ class PostManager extends Manager
 		}
 
 	public function deletedPost($id)
-	{
-		$db = $this->dbConnect();
-		$no_comment = $db->prepare('DELETE FROM posts WHERE id = ?');
-		$deletedLines = $no_comment->execute(array($id));
-
-		return $deletedLines;
-	}	
-
+ {
+ $db = $this->dbConnect();
+var_dump($db);
+var_dump($id);
+ $no_post = $db->prepare('DELETE FROM posts WHERE id = ?');
+var_dump($no_post);
+ $deletedLines = $no_post->execute(array($id));
+ 
+ return $deletedLines;	
 }
-
+}

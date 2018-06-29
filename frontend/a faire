@@ -36,14 +36,24 @@ FAIT :
 - pour les messages flash, comme on fait deux fois le même fonctionnement, le mettre dans le template -> ca devrait fonctionner avec l'isset.
 -> fait
 
-A FAIRE : 
-
 - afficher deux tableaux dans les commentaires : un pour les signaler et un pour les non signalés. 
+
+A FAIRE : 
 
 - pour le code, normes PSR : pSR 1  et 2 (phpcode sniffer)
 https://www.php-fig.org/psr/
 https://github.com/squizlabs/PHP_CodeSniffer
 
 - pour les sessions : https://www.grafikart.fr/formations/php-debutant/sessions-cookies
+
+mail aymerik lundi
+- j'ai toujours le pbl d'affichage quand il faut recharger les pages, sur le backend comme sur le frontend. je n'ai pas cherché la solution
+
+backend
+- j'ai un probleme avec ma fonction deletedcomment dans mon backend. je ne vois pas ce que j'ai loupé
+- j'ai commencé le travail sur les sessions, j'ai bien compris le principe mais je n'arrive pas à l'organisaer dans l'architecture. du coup, pour le moment, mmon routeur de session se trouve dans un fichier login.php
+- je veux aussi faire un bouton de deconnexion de session : cf la fonction crée pour cela dans le contrôleur.
++ pbl css pour ettre le bouton à droite
+
 
 

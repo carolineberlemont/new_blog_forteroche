@@ -2,9 +2,7 @@
 
 namespace Caro\Projet3\Frontend\Model;
 
-require_once("model/Manager.php");
-
-class MessageFlashManager extends Manager
+class MessageFlashManager
 {
 	public function mflash($message, $error_message)
 	{

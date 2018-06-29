@@ -1,4 +1,4 @@
-<?php $title = $post['title']; ?>
+<?php $title = $poster['title']; ?>
 
 <?php ob_start(); ?>
 

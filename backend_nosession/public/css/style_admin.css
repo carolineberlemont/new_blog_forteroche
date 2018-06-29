@@ -5,7 +5,7 @@ body {
 
 body {
   padding-top: 70px;
-  background-color: #0b2027
+  background-color: #0b2027;
 }
 
 div {
@@ -39,6 +39,11 @@ h1 h2 h3 {
 
 .blue {
   background-color: #56b2bf; 
+}
+
+.float {
+  background-color: #0b2027;
+  float : right;
 }
 
 .navbar.toggler.icon {

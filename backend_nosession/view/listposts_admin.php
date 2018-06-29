@@ -20,8 +20,8 @@
                             <?= $post['title'] ?>.</h3>
                             </br>
                             <h5><em>publié le <?= $post['post_date_fr'] ?></em></h5>
-                            <hr size=4 width=70% align=center >
-                            <p><?= $post['content'] ?>...</p>
+                        
+                            <p><?= $post['content'] ?></p>
 
                             <button class= "blue"><a href="index_admin.php?action=post&amp;id=<?= $post['id'] ?>">Modifier/supprimer l'épisode</a></button>
                         </div>

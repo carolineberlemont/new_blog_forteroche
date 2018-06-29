@@ -2,7 +2,34 @@
 
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+require_once('model/MessageFlashManager.php');
 
+ function reporting($commentId, $postId)
+    {   
+        $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
+        $commentManager = new \Caro\Projet3\Frontend\Model\CommentManager();
+        $messageflashManager = new \Caro\Projet3\Frontend\Model\MessageFlashManager();
+                    
+            if (($reporting = $commentManager->reportComment($commentId))== 1)
+            {
+                $flash['error']= false;
+                $flash['content']= 'le commentaire a bien été signalé';
+            }
+            else
+            {
+                $flash['error']= true;
+                $flash['content']= 'une erreur s\'est produite, veuilliez essayer de nouveau';
+            }   
+
+        $poster = $postManager->getPost($postId);
+        $comments = $commentManager->getComments($postId); 
+        
+        $lastpost = $postManager->getlastPost();
+        $posts = $postManager->getPosts();
+
+        require('view/sidebar.php');
+        require('view/postview.php');
+    }
  function home()
     {
         
@@ -47,33 +74,7 @@ require_once('model/CommentManager.php');
         require('view/postView.php');
     }
 
-    function reporting($commentId, $postId)
-    {   
-        $postManager = new \Caro\Projet3\Frontend\Model\PostManager();
-        $commentManager = new \Caro\Projet3\Frontend\Model\CommentManager();
-        $messageflashManager = new \Caro\Projet3\Frontend\Model\MessageFlashManager();
-
-        $poster = $postManager->getPost($postId);
-        $comments = $commentManager->getComments($postId); 
-
-            
-            if (($reporting = $commentManager->reportComment($commentId))== 1)
-            {
-                $flash['error']= false;
-                $flash['content']= 'le commentaire a bien été signalé';
-            }
-            else
-            {
-                $flash['error']= true;
-                $flash['content']= 'une erreur s\'est produite, veuilliez essayer de nouveau';
-            }   
-        
-        $lastpost = $postManager->getlastPost();
-        $posts = $postManager->getPosts();
-
-        require('view/sidebar.php');
-        require('view/postview.php');
-    }
+    
 
     function bio()
     {

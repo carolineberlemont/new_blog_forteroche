@@ -45,17 +45,16 @@ try
             }
         }
 
-        elseif ($_GET['action'] == 'deletecomment'){
-            if (isset($_GET['id']) && $_GET['id'] > 0){                                
-                    deletecomment_admin($_GET['id'], $_GET['post_id']);      
+        elseif ($_GET['action'] == 'deletedComment'){
+            if (isset($_GET['id_comment']) && $_GET['id_comment'] > 0){                                
+                    deletedComment_admin($_GET['id_comment']);      
             }
         }
 
     }
     else {
-        listPosts_admin();    
+        home_admin();    
     }
-// sinon j'appelle la fonction seconnecter qui affiche un formulaire. si la connection est valide, valeur de 1
 }   
 
 catch(Exeption $e) 

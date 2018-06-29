@@ -10,7 +10,7 @@ class CommentManager extends Manager
 	// recupère les commentaires
 	{
 		    $db = $this->dbConnect();
-		    $comments = $db->query('SELECT comments.id_comment, authors.pseudo_author, comments.content, comments.id_post, comments.reporting, DATE_FORMAT(comments.date_comment, \'%d/%m/%Y à %Hh%imin\') AS date_comment_fr FROM comments INNER JOIN authors ON comments.id_author = authors.id_author ORDER BY date_comment DESC');
+		    $comments = $db->query('SELECT comments.id_comment, authors.pseudo_author, comments.content, comments.id_post, comments.reporting, DATE_FORMAT(comments.date_comment, \'%d/%m/%Y\') AS date_comment_fr FROM comments INNER JOIN authors ON comments.id_author = authors.id_author ORDER BY reporting');
 		 	
 		   	return $comments;
 	}
@@ -25,12 +25,12 @@ class CommentManager extends Manager
 		return $affectedLines;
 	}
 
-	public function deleteComment($id)
+	public function deletedComment($id)
 	{
 		$db = $this->dbConnect();
-		$no_comment = $db->prepare('DELETE FROM comments WHERE id = ?');
+		$no_comment = $db->prepare('DELETE FROM comments WHERE id_comment = ?');
 		$deletedLines = $no_comment->execute(array($id));
-
+		
 		return $deletedLines;
 	}
 
