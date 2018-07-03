@@ -2,7 +2,7 @@
 
 namespace Caro\Projet3\Backend\Model;
 
-class Manager
+class manager
 {
 	protected function dbConnect()
 	{

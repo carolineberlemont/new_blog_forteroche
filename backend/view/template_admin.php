@@ -1,5 +1,3 @@
-<?php require_once('session-verif.php') ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,8 +21,23 @@
         <span class="navbar-toggler-icon"></span>
         </button>
 
-                    <a class="navbar-brand" href="index.php">Billet simple pour l'Alaska</a>
+                    <a class="navbar-brand" href="index_admin.php?action=listposts">Billet simple pour l'Alaska</a>
                     								<!-- ajouter le bon lien -->
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="?action=listposts">Liste des épisodes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?action=listcomments">Liste des commentaires</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <button class="creme pull-right"><a href="?action=logout">Deconnexion</a></button>
+                <li>                           
+            </ul>
+        </div>    
     </nav>  
 
     <div class="container">

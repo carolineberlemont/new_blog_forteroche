@@ -13,7 +13,6 @@
                 <h3 class="title p-3 border-bottom">
                 <?= $post['title'] ?>.</h3>
                 </br>
-                <hr size=4 width=70% align=center >
                 <p><?= $post['content'] ?></p>               
             </div><!-- m-3 p-3 -->            
         
@@ -28,7 +27,7 @@
                     {
                     ?>
                         <p><strong>Par <?= $comment['pseudo_author'] ?></strong> 
-                        publié le <?= $comment['comment_date_fr'] ?>
+                        publié le <?= $comment['date_comment_fr'] ?>
                         
                         <input type="submit" value="Supprimer" class="blue" /></p>          
                         <p><?= $comment['content'] ?></p>

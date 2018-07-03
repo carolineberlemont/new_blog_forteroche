@@ -4,7 +4,7 @@ namespace Caro\Projet3\Backend\Model;
 
 require_once('model/Manager.php');
 
-class PostManager extends Manager
+class postManager extends manager
 {
 	public function getPosts()
 		{
@@ -13,7 +13,6 @@ class PostManager extends Manager
 
 			return $req;
 		}
-
 
 	public function getPost($postId)
 // recupère un post précis en fonction de son id
@@ -24,7 +23,6 @@ class PostManager extends Manager
 			$post = $req->fetch();
 
 		return $post;
-
 		}
 
 	public function addPost($title, $content)
@@ -38,7 +36,6 @@ class PostManager extends Manager
 
 	public function modifiedPost($postId, $title, $content)
 		{
-		
 			$db = $this->dbConnect();
 			
 			$modifiedpost = $db->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :id');
@@ -48,13 +45,13 @@ class PostManager extends Manager
 		}
 
 	public function deletedPost($id)
-	{
-		$db = $this->dbConnect();
-		$no_comment = $db->prepare('DELETE FROM posts WHERE id = ?');
-		$deletedLines = $no_comment->execute(array($id));
+		 {
+		 $db = $this->dbConnect();
 
-		return $deletedLines;
-	}	
+		 $no_post = $db->prepare('DELETE FROM posts WHERE id = ?');
 
+		 $deletedLines = $no_post->execute(array($id));
+		 
+		 return $deletedLines;	
+			}
 }
-

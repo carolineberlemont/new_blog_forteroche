@@ -16,18 +16,21 @@
                     {
                     ?>
                         <div class= "post m-2 creme border rounded">
-                        <h3 class="title border-bottom">
-                        <?= $post['title'] ?>.</h3>
-                        </br>
-                        <h5><em>publié le <?= $post['post_date_fr'] ?></em></h5>
-                        <hr size=4 width=70% align=center >
-                        <p><?= $post['content'] ?>...</p>
+                            <h3 class="title border-bottom">
+                            <?= $post['title'] ?>.</h3>
+                            <br/>
+                            <h5><em>publié le <?= $post['post_date_fr'] ?></em></h5>
+                        
+                            <p><?= $post['content'] ?></p>
 
-                        <button class= "blue"><a href="index_admin.php?action=post&amp;id=<?= $post['id'] ?>">Modifier/supprimer le billet et modérer les commentaires</a></button>
+                            <button class= "blue"><a href="index_admin.php?action=post&amp;id=<?= $post['id'] ?>">Modifier l'épisode</a></button>
+                            <button class= "blue rounded"><a href="index_admin.php?action=deletedpost&id=<?= $post['id'] ?>">Supprimer l'épisode</a></button>
+                            
                         </div>
-                        <?php
+                    <?php
                     }
-                    ?>                    
+                    ?>                                    
+            </div>                          
                 
 
     <?php $content = ob_get_clean(); ?>

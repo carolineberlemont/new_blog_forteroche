@@ -4,16 +4,15 @@ namespace Caro\Projet3\Backend\Model;
 
 require_once('model/Manager.php');
 
-class CommentManager extends Manager
+class commentManager extends manager
 {
-	public function getComments($postId)
-	// recupère les commentaires associés à un id de post
+	public function getComments()
+	// recupère les commentaires
 	{
 		    $db = $this->dbConnect();
-		    $comments = $db->prepare('SELECT comments.id, authors.pseudo_author, comments.content, comments.post_id, comments.reporting, DATE_FORMAT(comments.comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments INNER JOIN authors ON comments.author = authors.id_author WHERE post_id = ? ORDER BY comment_date DESC');
-		   	$comments->execute(array($postId));		   
-
-		return $comments;
+		    $comments = $db->query('SELECT comments.id_comment, authors.pseudo_author, comments.content, comments.id_post, comments.reporting, DATE_FORMAT(comments.date_comment, \'%d/%m/%Y\') AS date_comment_fr FROM comments INNER JOIN authors ON comments.id_author = authors.id_author ORDER BY reporting');
+		 	
+		   	return $comments;
 	}
 
 	public function postComment($postId, $author, $content)
@@ -26,12 +25,12 @@ class CommentManager extends Manager
 		return $affectedLines;
 	}
 
-	public function deleteComment($id)
+	public function deletedComment($id)
 	{
 		$db = $this->dbConnect();
-		$no_comment = $db->prepare('DELETE FROM comments WHERE id = ?');
+		$no_comment = $db->prepare('DELETE FROM comments WHERE id_comment = ?');
 		$deletedLines = $no_comment->execute(array($id));
-
+		
 		return $deletedLines;
 	}
 
