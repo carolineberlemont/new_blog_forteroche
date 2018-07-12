@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title><?= $title ?></title>
+    <title><?php echo $title ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="public/css/style_admin.css" rel="stylesheet">
+    <link href="../public/css/style.css" rel="stylesheet">
     </head>
     
         
@@ -22,7 +22,7 @@
         </button>
 
                     <a class="navbar-brand" href="index_admin.php?action=listposts">Billet simple pour l'Alaska</a>
-                    								<!-- ajouter le bon lien -->
+                                                    <!-- ajouter le bon lien -->
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -42,7 +42,9 @@
 
     <div class="container">
 
-        <?= $content ?>
+    </br>
+
+        <?php echo $content ?>
         
       
     </div>

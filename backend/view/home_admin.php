@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title><?= $title ?></title>
+    <title><?php echo $title ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="public/css/style_admin.css" rel="stylesheet">
+    <link href="../public/css/style.css" rel="stylesheet">
     </head>
     
         
@@ -24,7 +24,7 @@
         </button>
 
                     <a class="navbar-brand" href="index_admin.php?action=listposts">Billet simple pour l'Alaska</a>
-                    								<!-- ajouter le bon lien -->
+                                                    <!-- ajouter le bon lien -->
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -37,30 +37,35 @@
         </div>    
     </nav>  
 
+    
+
+    </br>
+
     <div class="container">
 
        <div class="jumbotron">
-          	<h1>BILLET SIMPLE POUR L'ALASKA</h1>
-               	</br>
-                <h5>Jean, depuis cette interface d'administration, vous pouvez ajouter, modifier ou supprimer un épisode de votre livre. </br> Vous pouvez également modérer les commentaires de vos lecteurs</br> Travaillez bien !</h5>
+            <h1>BILLET SIMPLE POUR L'ALASKA</h1>
+                </br>
+                <h5>Jean, depuis cette interface d'administration, vous pouvez ajouter, modifier ou supprimer un épisode de votre livre. </br> Vous pouvez également modérer les commentaires de vos lecteurs</br> Travaillez bien !</h5>          
+
           </div>
 
           <div class="form_admin creme rounded">
-	     
-				<h5>Jean, Veuillez entrer votre login et votre mot de passe pour accéder à "Billet simple pour l'Alaska" :</h5>
-        			<form action="index_admin.php?action=connect" method="post">    				
-			            <p>
-			            </br>
-			            <input type="text" name="login" placeholder="Votre login" />
-			        	</br>
-			        	</br>
-			            <input type="password" name="password" placeholder="Votre mot de passe"/>
-			        	</br>
-			        	</br>
-			            <input type="submit" value="Se connecter" />
-	           			</p>
-        			</form>
-        	</div>
+         
+                <h5>Jean, Veuillez entrer votre login et votre mot de passe pour accéder à "Billet simple pour l'Alaska" :</h5>
+                    <form action="index_admin.php?action=connect" method="post">                    
+                        <p>
+                        </br>
+                        <input type="text" name="login" placeholder="Votre login" />
+                        </br>
+                        </br>
+                        <input type="password" name="password" placeholder="Votre mot de passe"/>
+                        </br>
+                        </br>
+                        <input type="submit" value="Se connecter" />
+                        </p>
+                    </form>
+            </div>
         
       
     </div>

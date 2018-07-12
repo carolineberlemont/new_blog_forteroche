@@ -9,11 +9,11 @@
             </div>
 
             <div class="m-3 p-3 blog-post creme border rounded">
-                <h5><em>publié le <?= $post['post_date_fr'] ?></em></h5>
+                <h5><em>publié le <?php echo $post['post_date_fr'] ?></em></h5>
                 <h3 class="title p-3 border-bottom">
-                <?= $post['title'] ?>.</h3>
+                <?php echo $post['title'] ?>.</h3>
                 </br>
-                <p><?= $post['content'] ?></p>               
+                <p><?php echo $post['content'] ?></p>               
             </div><!-- m-3 p-3 -->            
         
         <!-- espace de commentaires -->
@@ -23,15 +23,14 @@
         <!-- commentaires deja écrits -->
                 <div class="Com m-2 p-2 creme border rounded">
                     <?php
-                    while ($comment = $comments->fetch())
-                    {
-                    ?>
-                        <p><strong>Par <?= $comment['pseudo_author'] ?></strong> 
-                        publié le <?= $comment['date_comment_fr'] ?>
+                    while ($comment = $comments->fetch()) {
+                        ?>
+                        <p><strong>Par <?php echo $comment['pseudo_author'] ?></strong> 
+                        publié le <?php echo $comment['date_comment_fr'] ?>
                         
                         <input type="submit" value="Supprimer" class="blue" /></p>          
-                        <p><?= $comment['content'] ?></p>
-                    <?php
+                        <p><?php echo $comment['content'] ?></p>
+                        <?php
                     } 
                     ?>                   
                 </div><!--Com-->
@@ -39,4 +38,4 @@
 
     <?php $content = ob_get_clean(); ?>
 
-    <?php require("template_admin.php"); ?>
+    <?php require "template_admin.php"; ?>

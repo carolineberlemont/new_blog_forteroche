@@ -9,43 +9,38 @@
             </div>
 
                     <?php
-                        while ($comment = $comments->fetch())
-                        {
-                    ?> 
+                    while ($comment = $comments->fetch()) {
+                        ?> 
 
-                    <?php if (isset($comment) && $comment['reporting'] == 0): ?>
+                        <?php if (isset($comment) && $comment['reporting'] == 0) : ?>
                           
                             <div class= "comment m-2 bg-danger border rounded">
 
-                                <p><strong>Par <?= $comment['pseudo_author'] ?> 
-                                publié le <?= $comment['date_comment_fr'] ?></strong>
-                                <?= $comment['content'] ?></p>
+                                <p><strong>Par <?php echo htmlspecialchars($comment['pseudo_author']) ?> 
+                                publié le <?php echo htmlspecialchars($comment['date_comment_fr']) ?></strong>
+                                <?php echo htmlspecialchars($comment['content']) ?></p>
                                 <button class="creme rounded">
-                                <a href="index_admin.php?action=deletedComment&id=<?= $comment['id_comment'] ?>">Supprimer</a></button>
-
-                                
+                                <a href="index_admin.php?action=deletedComment&id=<?php echo $comment['id_comment'] ?>">Supprimer</a></button>                               
                             </div>                                 
                           
-                    <?php elseif (isset($comment) && $comment['reporting'] == 1): ?>
+                    <?php elseif (isset($comment) && $comment['reporting'] == 1) : ?>
                         
                             <div class= "comment m-2 blue border rounded">
 
-                                <p><strong>Par <?= $comment['pseudo_author'] ?> 
-                                publié le <?= $comment['date_comment_fr'] ?></strong>
-                                <?= $comment['content'] ?></p>
+                                <p><strong>Par <?php echo htmlspecialchars($comment['pseudo_author']) ?> 
+                                publié le <?php echo htmlspecialchars($comment['date_comment_fr']) ?></strong>
+                                <?php echo htmlspecialchars($comment['content']) ?></p>
                                 <button class="creme rounded">
-                                <a href="index_admin.php?action=deletecomment&id=<?= $comment['id_comment'] ?>">Supprimer</a></button>
-
-                                
+                                <a href="index_admin.php?action=deletedComment&id=<?php echo $comment['id_comment'] ?>">Supprimer</a></button>                                
                             </div>
                                                        
 
                     <?php endif ?>
 
-                    <?php
+                        <?php
                     }
                     ?>                 
                               
     <?php $content = ob_get_clean(); ?>
 
-    <?php require("template_admin.php"); ?>
+    <?php require "template_admin.php"; ?>

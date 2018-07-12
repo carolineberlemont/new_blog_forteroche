@@ -30,4 +30,4 @@
             </div><!-- m-3 p-3 -->  
     <?php $content = ob_get_clean(); ?>
 
-    <?php require("template_admin.php"); ?>
+    <?php require "template_admin.php"; ?>

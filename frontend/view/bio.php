@@ -16,9 +16,9 @@
           </div>
 
           <div class="bio creme rounded">
-            <p class="text-center"><img src="public/images/jeanforteroche.jpg" class="img-thumbnail m-2"></p>
+            
                     <h3 class="title p-3 border-bottom">Jean FORTEROCHE</h3>
-
+                    <p class="text-center"><img src="../public/images/jeanforteroche.jpg" class="img-thumbnail m-2"></p>
                     <p class="descriptionCplt">
                     <span class="prestige"><strong>Poète et écrivain</strong></span> <br/>
                     Jean Forteroche est un poète français, né le 20 octobre 1954 à Marseille. Bien que brève, la densité de son œuvre poétique fait de lui une des figures premières de la littérature française.
@@ -35,5 +35,4 @@
 
     <?php $content = ob_get_clean(); ?>
 
-    <?php require ("template.php"); ?>
-
+    <?php require "template.php"; ?>

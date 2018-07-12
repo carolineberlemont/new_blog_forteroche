@@ -12,14 +12,14 @@
             <!-- Ci dessous, on modifie le post -->
             <div class="m-3 p-3 blog-post creme border rounded">
                 <form action="index_admin.php?action=modified_post" method="post">
-                    <h5><em>Publié le <?= $post['post_date_fr'] ?></em></h5>
+                    <h5><em>Publié le <?php echo $post['post_date_fr'] ?></em></h5>
 
-                    <input type="text" name="title" value="<?= $post['title'] ?>" size="100" />                   
+                    <input type="text" name="title" value="<?php echo $post['title'] ?>" size="100" />                   
                     </br>
                     </br>
-                    <textarea name="content"><?= $post['content'] ?></textarea>
+                    <textarea name="content"><?php echo $post['content'] ?></textarea>
 
-                    <input type="hidden" value="<?= $post['id'] ?>" name="id" />
+                    <input type="hidden" value="<?php echo $post['id'] ?>" name="id" />
                     <input type="submit" value="Enregistrer" class="blue" />
                 </form>
                  
@@ -30,4 +30,4 @@
 
     <?php $content = ob_get_clean(); ?>
 
-    <?php require("template_admin.php"); ?>
+    <?php require "template_admin.php"; ?>

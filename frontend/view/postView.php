@@ -17,10 +17,10 @@
 
         <div class="blog-main blue rounded">
                 <div class="m-3 p-3 blog-post creme border rounded">
-                    <h3 class="title p-3 border-bottom"><?= $poster['title']; ?></h3>
+                    <h3 class="title p-3 border-bottom"><?php echo $poster['title']; ?></h3>
                     </br>
-                    <h5><em>publié le <?= $poster['post_date_fr'] ?> par Jean FORTEROCHE</em></h5>
-                    <p><?= $poster['content'] ?></p>
+                    <h5><em>publié le <?php echo $poster['post_date_fr'] ?> par Jean FORTEROCHE</em></h5>
+                    <p><?php echo $poster['content'] ?></p>
                 </div><!-- m-3 p-3 -->     
 
         <!-- espace de commentaires -->
@@ -30,31 +30,28 @@
         <!-- commentaires deja écrits -->
                 <div class="Com m-2 p-2 creme border rounded">
                     <?php
-                    while ($comment = $comments->fetch())
-                    {
-                    ?> 
-                        <p><strong>Par <?= $comment['pseudo_author'] ?></strong> 
-                        publié le <?= $comment['date_comment_fr'] ?> 
-<?php
-if ($comment['reporting'] == 1)
-{
-?>
-    <a class="btn blue" href="index.php?action=reporting&id=<?= $poster['id'] ?>&comment_id=<?= $comment['id_comment'] ?>" role="button">Signaler</a>   
-<?php                    
-}
-?>
+                    while ($comment = $comments->fetch()) {
+                        ?> 
+                            <p><strong>Par <?php echo htmlspecialchars($comment['pseudo_author']) ?></strong> 
+                        publié le <?php echo htmlspecialchars($comment['date_comment_fr']) ?> 
+                        <?php
+                        if ($comment['reporting'] == 1) {
+                            ?>
+                        <a class="btn blue" href="index.php?action=reporting&id=<?php echo $poster['id'] ?>&comment_id=<?php echo $comment['id_comment'] ?>" role="button">Signaler</a>   
+                            <?php                    
+                        }
+                        ?>
 
-<?php
-if ($comment['reporting'] == 0)
-{
-?>
-    <button type="button" class="btn btn-outline-dark" disabled>Déjà signalé</button>
-<?php                    
-}
-?>
+                        <?php
+                        if ($comment['reporting'] == 0) {
+                            ?>
+                            <button type="button" class="btn btn-outline-dark" disabled>Déjà signalé</button>
+                            <?php                    
+                        }
+                        ?>
                 
-                        <p><?= $comment['content'] ?></p>
-                    <?php
+                        <p><?php echo $comment['content'] ?></p>
+                        <?php
                     } 
                     ?>                   
                 </div><!--Com-->
@@ -62,7 +59,7 @@ if ($comment['reporting'] == 0)
         <!-- formulaire pour laisser un commentaire-->
                 <div class="formCom m-2 p-2 bg-light border rounded ">                    
                             <h3 class="title-comment pt-2">Laissez un commentaire</h3>
-                                <form action="index.php?action=addComment&id=<?= $poster['id'] ?>" method="post">                                    
+                                <form action="index.php?action=addComment&id=<?php echo $poster['id'] ?>" method="post">                                    
                                         <div>
                                             <label for="author">Auteur</label>
                                             <br />
@@ -87,4 +84,4 @@ if ($comment['reporting'] == 0)
 
     <?php $content = ob_get_clean(); ?>
 
-    <?php require("template.php"); ?>
+    <?php require"template.php"; ?>

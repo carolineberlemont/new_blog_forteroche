@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title><?= $title ?></title>
+    <title><?php echo $title ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="public/css/style.css" rel="stylesheet">
-  </head>
+    </head>
     
         
     <body>
@@ -34,13 +34,15 @@
         </div>
     </nav> 
 
-    <?php if (isset($flash) && $flash['error']): ?>
+</br>
+
+    <?php if (isset($flash) && $flash['error']) : ?>
                 <div class="alert alert-danger" role="alert">
-                <?= $flash['content'] ?>
+                <?php echo $flash['content'] ?>
                 </div>
             <?php elseif (isset($flash)) : ?>
                 <div class="alert alert-success" role="alert">
-                <?= $flash['content'] ?>
+                <?php echo $flash['content'] ?>
                 </div>
             <?php endif ?>
 
@@ -48,15 +50,16 @@
 
       <div class="row row-offcanvas row-offcanvas-right">
 
-        <?= $content ?>
+        <?php echo $content ?>
 
-        <?= $sidebar ?>   
+        <?php echo $sidebar ?>   
         
       </div>
     </div>
 
     <div class="footer container creme rounded">
-        <p>Design pour Jean Forteroche par CaroBer @ 2018 Tous droits réservés.<br><a class="mentions légales" href="?action=mentionslegales"><em>Mentions légales</em></a></p> 
+        <p>Design pour Jean Forteroche par CaroBer @ 2018 Tous droits réservés.</p>
+            <em>Mentions légales</em></p> 
     </div><!--/.footer-->
    
 
