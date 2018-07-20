@@ -12,18 +12,18 @@
                 <button class= "creme rounded"><a href="index_admin.php?action=newpost">Ajouter un épisode</a></button>
                                   
                     <?php
-                    while ($post = $posts->fetch()) {
+                    foreach($posts as $post) {
                         ?>
                         <div class= "post m-2 creme border rounded">
                             <h3 class="title border-bottom">
-                            <?php echo $post['title'] ?></h3>
+                            <?php echo $post->getTitle(); ?></h3>
                             <br/>
-                            <h5><em>publié le <?php echo $post['post_date_fr'] ?></em></h5>
+                            <h5><em>publié le <?php echo $post->getPostDate(); ?></em></h5>
                         
-                            <p><?php echo $post['content'] ?></p>
+                            <p><?php echo $post->getContent(); ?></p>
 
-                            <button class= "blue"><a href="index_admin.php?action=post&amp;id=<?php echo $post['id'] ?>">Modifier l'épisode</a></button>
-                            <button class= "blue rounded"><a href="index_admin.php?action=deletedpost&id=<?php echo $post['id'] ?>">Supprimer l'épisode</a></button>
+                            <button class= "blue"><a href="index_admin.php?action=post&amp;id=<?php echo $post->getId(); ?>">Modifier l'épisode</a></button>
+                            <button class= "blue rounded"><a href="index_admin.php?action=deletedpost&id=<?php echo $post->getId(); ?>">Supprimer l'épisode</a></button>
                             
                         </div>
                         <?php

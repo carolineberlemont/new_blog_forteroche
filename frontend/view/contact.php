@@ -24,7 +24,7 @@
             
                         <div class="form-group pt-2">
                             <label for="Nom">Votre Nom</label>
-                            <input type="text" name="nom" id="Nom" class="form-control creme"  placeholder="Jean Forteroche">
+                            <input type="text" name="nom" id="nom" class="form-control creme"  placeholder="Jean Forteroche">
                             <span id="error-message"></span>
                         </div>
 
@@ -47,6 +47,7 @@
                         </div>
                         <br>
                         
+                        <input type="hidden" name="access" value="stopspam">
                         <button type="submit" name="envoi" class="btn blue border">Envoyer</button>
 
                     </form>

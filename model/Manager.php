@@ -4,7 +4,7 @@ namespace Caro\New_blog_forteroche\Model;
 
 class Manager
 {
-    private $_db;   
+    private $db;   
     protected function dbConnect()
     {
         if ($this->db==null) {
@@ -15,10 +15,3 @@ class Manager
         return $this->db;
     }
 }
-
- // protected function dbConnect()
-    // {
-    //     $db = new \PDO('mysql:host=db745065323.db.1and1.com;dbname=db745065323;charset=utf8', 'dbo745065323', 'Way306ross209@');
-    //     return $db;
-    // }
-

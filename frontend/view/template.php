@@ -10,7 +10,7 @@
     <link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="public/css/style.css" rel="stylesheet">
+    <link href="../public/css/style.css" rel="stylesheet">
     </head>
     
         
@@ -20,7 +20,7 @@
         <span class="navbar-toggler-icon"></span>
         </button>
 
-                    <a class="navbar-brand" href="index.php">Billet simple pour l'Alaska</a>
+                    <a class="navbar-brand" href="http://projet3.singavalence.com/frontend/">Billet simple pour l'Alaska</a>
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">

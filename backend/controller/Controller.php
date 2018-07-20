@@ -4,9 +4,13 @@ namespace Caro\New_blog_forteroche\Backend\Controller;
 
 use Caro\New_blog_forteroche\Model\CommentManager;
 use Caro\New_blog_forteroche\Model\PostManager;
+use Caro\New_blog_forteroche\Model\Post;
+use Caro\New_blog_forteroche\Model\Comment;
 
 require_once '../model/PostManager.php' ;
 require_once '../model/CommentManager.php';
+require_once'../model/Post.php';
+require_once'../model/Comment.php';
 
 class Controller
 {
@@ -15,7 +19,7 @@ class Controller
         include 'view/home_admin.php';
     }
 
-    function listPostsAdmin()
+    function listPostsAdmin() //fonctionne avec entités
     {
         $postManager = new \Caro\New_blog_forteroche\Model\postManager();   
 
@@ -24,7 +28,7 @@ class Controller
         include 'view/listposts_admin.php';
     }
 
-    function listCommentsAdmin()
+    function listCommentsAdmin() //fonctionne sans entités
     {
         $commentManager = new \Caro\New_blog_forteroche\Model\commentManager();
          
@@ -33,7 +37,7 @@ class Controller
         include 'view/listcomments_admin.php';
     }
 
-    function postAdmin()
+    function postAdmin() //fonctionne avec entités
     {
         $postManager = new \Caro\New_blog_forteroche\Model\postManager();
 
@@ -44,49 +48,65 @@ class Controller
 
     function newPostAdmin()
     {
-        $postManager = new \Caro\New_blog_forteroche\Model\postManager();
-
         include 'view/newpost_admin.php';
     }
 
-    function addPostAdmin($title, $content)
+    function addPostAdmin($post) // fonctionne avec entités
     {
-        $postManager = new \Caro\New_blog_forteroche\Model\postManager();
-        
-        $affectedLines = $postManager->addPost($title, $content);
+        $postManager = new PostManager();
+        $post = new Post();
+        if (isset($_POST['title']) && isset($_POST['content'])) {
+            $post->setTitle($_POST['title']);
+            $post->setContent($_POST['content']);
+        }
+        $affectedLines = $postManager->addPost($post);
+
         $posts = $postManager->getPosts();
         
         include 'view/listposts_admin.php';
     }
 
-    function modifiedPostAdmin($postID, $title, $content)
+    function modifiedPostAdmin($post) // fonctionne avec entités
+    {
+        $postManager = new PostManager();
+        $commentManager = new CommentManager();        
+
+        $post = new Post();
+        if (isset($_POST['id'])) {
+            $post->setId($_POST['id']);
+            $post->setTitle($_POST['title']);
+            $post->setContent($_POST['content']);
+        }
+
+        $modifiedLines = $postManager->modifiedPost($post);
+        var_dump($modifiedLines);
+
+        $posts = $postManager->getPosts();    
+                
+        include 'view/listposts_admin.php';
+    }
+
+    function deletedPostAdmin($post) //fonctionne avec entités
     {
         $postManager = new \Caro\New_blog_forteroche\Model\postManager();
-        $commentManager = new \Caro\New_blog_forteroche\Model\commentManager();
-
-        $modifiedLines = $postManager->modifiedPost($postID, $title, $content);
+        $post = new Post();
+        if (isset($_GET['id'])) {
+            $post->setId($_GET['id']);
+        }
+        $deletedLines = $postManager->deletedPost($post);
         $posts = $postManager->getPosts();    
-        $post = $postManager->getPost($_POST['id']);
-        $comments = $commentManager->getComments($_POST['id']); 
 
         include 'view/listposts_admin.php';
     }
 
-    function deletedPostAdmin($id)
-    {
-        $postManager = new \Caro\New_blog_forteroche\Model\postManager();
-
-        $deletedLines = $postManager->deletedPost($id);
-        $posts = $postManager->getPosts();    
-
-        include 'view/listposts_admin.php';
-    }
-
-    function deletedCommentAdmin($id)
+    function deletedCommentAdmin($comment)// fonctionne ave entités
     {
         $commentManager = new \Caro\New_blog_forteroche\Model\commentManager();
-        ;
-        $deletedCom = $commentManager->deletedComment($id);
+        $comment = new comment();
+        if (isset($_GET['id'])) {
+            $comment->setIdComment($_GET['id']);
+        }
+        $deletedCom = $commentManager->deletedComment($comment);
         $comments = $commentManager->getComments();       
 
         include 'view/listcomments_admin.php';

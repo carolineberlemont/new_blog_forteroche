@@ -16,7 +16,7 @@ try
         } elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['content'])) {
-                    $controller->post($_GET['id'], $_POST['author'], $_POST['content'], null);
+                    $controller->addComment($_GET['id'], $_POST['author'], $_POST['content']);
                 } else {
                     echo 'Erreur : tous les champs ne sont pas remplis !';
                 }
@@ -26,13 +26,13 @@ try
         } elseif ($_GET['action'] == 'reporting') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (isset($_GET['comment_id']) && $_GET['comment_id'] > 0) {
-                        $controller->post($_GET['id'], null, null, $_GET['comment_id']);    
+                        $controller->reporting($_GET['id'], $_GET['comment_id']);    
                 } else {
                         echo 'Erreur : vous ne pouvez pas signaler ce commentaire';
                 }
             } else {
                     echo 'Erreur : aucun identifiant de billet envoyé';
-            }              
+            }   
         } elseif ($_GET['action'] == 'bio') {
                 $controller->bio();
         } elseif ($_GET['action'] == 'contact') {
